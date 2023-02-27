@@ -102,7 +102,7 @@ export const Home = () => {
           );
         })}
       </GridContainer>
-      {location?.lat ? (
+      {location?.lat && nearestCity ? (
         <>
           <div className="m-8 mt-14 md:px-12">
             <Typography text="SPECIAL OFFERS" type="important" />
