@@ -14,6 +14,16 @@ export const Form = ({ formData, setFormData }) => {
       <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-3 col-span-2">
         <Input
           type="text"
+          label="origin-form"
+          labelText="Origin"
+          labelColor="text-slate-300"
+          placeholder="Origin city"
+          value={formData.origin}
+          name="origin"
+          onChange={handleChangeFormData}
+        />
+        <Input
+          type="text"
           label="destination-form"
           labelText="Destination"
           labelColor="text-slate-300"

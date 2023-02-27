@@ -7,6 +7,7 @@ import tripPreparation from "../../assets/videos/tripPreparation.mp4";
 
 export const Flights = () => {
   const [formData, setFormData] = useState({
+    origin: "",
     destination: "",
     startDate: "",
     endDate: "",

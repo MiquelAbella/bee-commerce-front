@@ -1015,9 +1015,7 @@ export const getFlights = () => {
   let flights = [];
   for (let i = 0; i < 1000; i++) {
     flights.push({
-      origin: cities[Math.floor(Math.random() * cities.length)],
       destination: cities[Math.floor(Math.random() * cities.length)],
-      price: prices[Math.floor(Math.random() * prices.length)],
     });
   }
   return flights;

@@ -30,31 +30,12 @@ export const MapView = () => {
                   longitude={longitude}
                   latitude={latitude}
                   anchor="bottom"
-                  //   onClick={() => {
-                  //     setCurrCity(city);
-                  //   }}
                   color="#fa836e"
                   scale={0.7}
                 />
               );
             })}
           </Map>
-          {/* <div className="bg-white absolute left-10 bottom-10 rounded-md">
-            {currCity && (
-              <div className="p-6 w-full flex items-end justify-between gap-6">
-                <p className="mb-2">
-                  {currCity.capital}, {currCity.country}
-                </p>
-                <Button
-                  text="See flights"
-                  onClick={() => {
-                    setCurrentFlight({ flight: currCity});
-                    setIsModalOpen(true);
-                  }}
-                />
-              </div>
-            )}
-          </div> */}
         </div>
       </div>
     </div>
