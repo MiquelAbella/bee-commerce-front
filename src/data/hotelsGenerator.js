@@ -1032,5 +1032,4 @@ export const getHotels = () => {
       });
     }
   }
-  console.log(JSON.stringify(hotelNames));
 };
