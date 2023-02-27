@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Layout } from "../Components";
 import { Cart, Flights, Home, Hotels } from "../Pages";
 
-export const Router = ({ children }) => {
+export const Router = () => {
   return (
     <BrowserRouter>
       <Layout>

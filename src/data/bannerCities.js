@@ -4,7 +4,7 @@ import img3 from "../assets/images/countries/lofoten.jpg"
 import img4 from "../assets/images/countries/berlin.jpg"
 import img5 from "../assets/images/countries/kenia.jpg"
 
-export const specialOffers = [
+export const bannerCities = [
   {
     city: "Helsinki",
     duration: 7,
