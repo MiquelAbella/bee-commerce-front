@@ -1,9 +1,9 @@
 import { cities } from "../../../../data/flightsGenerator";
 
 import Map, { Marker } from "react-map-gl";
-import { useContext, useRef } from "react";
+import { useRef } from "react";
 
-export const MapView = () => {
+export const MapView = ({ formData, setFormData }) => {
   const mapRef = useRef();
 
   return (
@@ -26,6 +26,10 @@ export const MapView = () => {
 
               return (
                 <Marker
+                  onClick={() => {
+                    window.scrollTo(0, 0);
+                    setFormData({ ...formData, destination: city.capital });
+                  }}
                   key={`${city}-${i}`}
                   longitude={longitude}
                   latitude={latitude}
