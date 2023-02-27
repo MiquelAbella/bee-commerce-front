@@ -50,6 +50,7 @@ export const WishListGroup = ({ title, type, tag }) => {
               className="px-4 py-2 border border-gray-400 rounded-md"
               onChange={handleRestore}
             >
+              <option value="">Select an option</option>
               <option value="family">Family</option>
               <option value="friends">Friends</option>
               <option value="couple">Couple</option>
