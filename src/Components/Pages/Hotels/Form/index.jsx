@@ -1,5 +1,7 @@
 import { Button } from "../../../Button";
 import { Input } from "../../../Input";
+import {cities} from "../../../../data/flightsGenerator"
+import { Typography } from "../../../Typography";
 
 export const Form = ({ setFormData, formData }) => {
   const handleChangeFormData = (e) => {
@@ -13,16 +15,27 @@ export const Form = ({ setFormData, formData }) => {
   return (
     <div className="flex flex-col gap-3 bg-black/50 rounded-md items-start justify-around min-h-1/2 w-2/3 p-6">
       <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-3 col-span-2">
-        <Input
-          name="destination"
-          type="text"
-          label="destination-form"
-          labelText="City"
-          placeholder="City"
-          value={formData.destination}
-          onChange={handleChangeFormData}
-          labelColor="text-slate-300"
-        />
+         <div className="flex flex-col">
+          <label htmlFor="destination-selector">
+            <Typography text="Destination" labelColor="text-slate-300" />
+          </label>
+          <select
+            id="destination-selector"
+            className="p-3 rounded-md"
+            value={formData.destination}
+            name="destination"
+            onChange={handleChangeFormData}
+          >
+            <option value="">Select destination</option>
+            {cities.map((city, i) => {
+              return (
+                <option key={`${city.capital}-${i}`} value={city.capital}>
+                  {city.country} - {city.capital}
+                </option>
+              );
+            })}
+          </select>
+        </div>
       </div>
       <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-3 col-span-2">
         <Input

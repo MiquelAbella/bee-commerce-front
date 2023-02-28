@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Button, Input, Typography } from "../../../index";
 import { getDistanceFromLatLonInKm } from "../../../../utils/calculateDistance";
 import { cities } from "../../../../data/flightsGenerator";
+import CartContext from "../../../../context/CartContext";
 
 export const Form = ({ formData, setFormData }) => {
+  const { cart, setCart } = useContext(CartContext);
+
   const [price, setPrice] = useState(null);
   const [isFormValid, setIsFormValid] = useState(false);
 
@@ -20,7 +23,7 @@ export const Form = ({ formData, setFormData }) => {
   };
 
   const handleSubmit = () => {
-    console.log(formData);
+    setCart({ ...cart, flight: formData });
   };
 
   useEffect(() => {
@@ -84,17 +87,13 @@ export const Form = ({ formData, setFormData }) => {
             onChange={handleChangeFormData}
           >
             <option value="">Select origin</option>
-            {cities
-              .sort((a, b) => {
-                a.capital - b.capital;
-              })
-              .map((city) => {
-                return (
-                  <option value={city.capital}>
-                    {city.country} - {city.capital}
-                  </option>
-                );
-              })}
+            {cities.map((city, i) => {
+              return (
+                <option key={`${city.country}-${i}`} value={city.capital}>
+                  {city.country} - {city.capital}
+                </option>
+              );
+            })}
           </select>
         </div>
         <div className="flex flex-col">
@@ -109,17 +108,13 @@ export const Form = ({ formData, setFormData }) => {
             onChange={handleChangeFormData}
           >
             <option value="">Select destination</option>
-            {cities
-              .sort((a, b) => {
-                a.capital - b.capital;
-              })
-              .map((city) => {
-                return (
-                  <option value={city.capital}>
-                    {city.country} - {city.capital}
-                  </option>
-                );
-              })}
+            {cities.map((city, i) => {
+              return (
+                <option key={`${city.capital}-${i}`} value={city.capital}>
+                  {city.country} - {city.capital}
+                </option>
+              );
+            })}
           </select>
         </div>
       </div>

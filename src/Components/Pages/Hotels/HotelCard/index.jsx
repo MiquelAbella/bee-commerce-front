@@ -1,16 +1,18 @@
 import { useContext } from "react";
+import CartContext from "../../../../context/CartContext";
 import { Button, Typography } from "../../../index";
 
 export const HotelCard = ({
-  Accomodation,
+  accomodation,
   formData,
+  isFormValid,
 }) => {
-  const { hotel, image, price, city } = Accomodation;
+  const { hotel, image, price, city } = accomodation;
 
- 
+  const { cart, setCart } = useContext(CartContext);
 
   const handleBookHotel = () => {
-    console.log('booking!')
+    setCart({ ...cart, accomodation: { ...formData, price: price } });
   };
 
   return (
@@ -22,7 +24,7 @@ export const HotelCard = ({
         <Typography text={`${price} € / PERSON`} />
       </div>
       <div className="flex items-end justify-end p-4">
-        <Button text="Book" onClick={handleBookHotel} />
+        <Button disabled={!isFormValid} text="Book" onClick={handleBookHotel} />
       </div>
     </div>
   );
