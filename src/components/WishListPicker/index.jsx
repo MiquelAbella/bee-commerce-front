@@ -18,13 +18,13 @@ export const WishListPicker = () => {
         WHO DO YOU WANT TO TRAVEL WITH?
       </h1>
 
-      {countries.map((place) => {
+      {countries.length && countries.map((place) => {
         const rand = Math.floor(Math.random() * 12);
 
         const rotation = `rotate-${rand}`;
 
         return <Card key={place.country} place={place} rotation={rotation} />;
-      })}
+      })|| <p className="absolute top-0 left-0 right-0 bottom-0 m-auto flex items-center justify-center">We don't have more suggestions for you...</p>}
       <ButtonsGroup countries={countries} setCountries={setCountries} />
     </div>
   );
