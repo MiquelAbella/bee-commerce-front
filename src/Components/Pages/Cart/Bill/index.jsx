@@ -55,7 +55,6 @@ console.log(hotelPrice, flightPrice)
               <Typography text={`Guests: ${hotel.people}`} />
             </div>
           )}
-          {/* from here */}
           {hotel.destination || flight.destination ? (
             <div className="flex flex-col items-start justify-start h-full">
               <Typography text="BILL" type="subtitle" />
