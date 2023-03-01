@@ -23,7 +23,11 @@ export const Form = ({ formData, setFormData }) => {
   };
 
   const handleSubmit = () => {
-    setCart({ ...cart, flight: formData });
+    const country = cities.filter((city) => {
+      return city.capital === formData.destination;
+    })[0];
+
+    setCart({ ...cart, flight: {...formData, country: country.country} });
   };
 
   useEffect(() => {

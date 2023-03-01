@@ -2,17 +2,21 @@ import { useContext } from "react";
 import CartContext from "../../../../context/CartContext";
 import { Button, Typography } from "../../../index";
 
-export const HotelCard = ({
-  accomodation,
-  formData,
-  isFormValid,
-}) => {
+export const HotelCard = ({ accomodation, formData, isFormValid }) => {
   const { hotel, image, price, city } = accomodation;
 
   const { cart, setCart } = useContext(CartContext);
 
   const handleBookHotel = () => {
-    setCart({ ...cart, accomodation: { ...formData, price: price } });
+    setCart({
+      ...cart,
+      accomodation: {
+        ...formData,
+        price: price,
+        name: hotel,
+        country: city.country,
+      },
+    });
   };
 
   return (

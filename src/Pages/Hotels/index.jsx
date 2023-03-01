@@ -25,10 +25,6 @@ export const Hotels = () => {
     [formData.destination]
   );
 
-  const changeFormData = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
   const validateForm = () => {
     const { destination, startDate, endDate, people } = formData;
 

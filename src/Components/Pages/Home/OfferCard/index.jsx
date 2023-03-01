@@ -1,10 +1,12 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useContext, useEffect, useMemo, useState } from "react";
 import { Button } from "../../../Button";
 import { Typography } from "../../../Typography";
 import { getDistanceFromLatLonInKm } from "../../../../utils/calculateDistance";
+import CartContext from "../../../../context/CartContext";
 
 export const OfferCard = ({ city, destination }) => {
   const [price, setPrice] = useState(null);
+  const { cart, setCart } = useContext(CartContext);
 
   const getPrice = () => {
     const price = Math.floor(
@@ -31,19 +33,25 @@ export const OfferCard = ({ city, destination }) => {
     getPrice();
   }, [city, destination]);
 
-  const sevenDaysInMilliseconds = 604800000;
-  const today = new Date(Date.now()).toLocaleDateString();
-  const nextWeek = new Date(
-    Date.now() + sevenDaysInMilliseconds
-  ).toLocaleDateString();
+  const oneDayInMilliseconds = 86400000;
+  const today = new Date(Date.now() + oneDayInMilliseconds * 2)
+    .toISOString()
+    .split("T")[0];
+  const nextWeek = new Date(Date.now() + oneDayInMilliseconds * 10)
+    .toISOString()
+    .split("T")[0];
 
   const handleBook = () => {
-    console.log({
-      origin: city,
-      destination: destination,
-      price: price * 2,
-      from: today,
-      to: nextWeek,
+    setCart({
+      ...cart,
+      flight: {
+        origin: city.capital,
+        destination: destination.capital,
+        price: price * 2,
+        startDate: today,
+        endDate: nextWeek,
+        passengers: 2
+      },
     });
   };
 
