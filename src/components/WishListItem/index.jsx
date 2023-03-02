@@ -10,7 +10,6 @@ export const WishListItem = ({
 }) => {
   const { country: wishedCountry, img, id } = country;
   const { wishList, setWishList } = useContext(WishListContext);
-
   const [isSelected, setIsSelected] = useState(false);
   const isUserInteracting = id === isHovered;
   const isCompleted = country.isCompleted;
@@ -24,7 +23,8 @@ export const WishListItem = ({
     setIsSelected(!isSelected);
   };
 
-  const handleMarkAsCompleted = () => {
+  const handleMarkAsCompleted = (e) => {
+    e.stopPropagation()
     const filtered = wishList[tag].filter((item) => item.id !== country.id);
 
     setWishList({
