@@ -15,6 +15,7 @@ export const WishListItem = ({
   const isCompleted = country.isCompleted;
 
   const handleSelectItem = () => {
+    if(isCompleted) return
     if (isSelected) {
       setSelectedItems(selectedItems.filter((item) => item.id !== country.id));
     } else {
