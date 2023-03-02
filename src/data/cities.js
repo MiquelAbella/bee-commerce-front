@@ -4,6 +4,8 @@ export const places = [
     capital: "Andorra la Vella",
     latitude: 42.5063,
     longitude: 1.5218,
+    id: "5bc843b3-12db-477e-85b2-2508b44ef9b1",
+    isCompleted: false,
     img: "https://images.unsplash.com/photo-1614678096587-0ad50faf1603?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YW5kb3JyYXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
   },
   {
@@ -11,6 +13,8 @@ export const places = [
     capital: "Buenos Aires",
     latitude: -34.6037,
     longitude: -58.3816,
+    id: "584a2fad-006b-4e64-a4f3-30fb61b7073d",
+    isCompleted: false,
     img: "https://images.unsplash.com/photo-1529414988992-52e2db9372b2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGFyZ2VudGluYXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60",
   },
   {
@@ -18,6 +22,8 @@ export const places = [
     capital: "Canberra",
     latitude: -35.282,
     longitude: 149.1287,
+    id: "fd7ecbe9-66e9-4c56-98a7-a2f50d46123a",
+    isCompleted: false,
     img: "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YXVzdHJhbGlhfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60",
   },
   {
@@ -25,6 +31,8 @@ export const places = [
     capital: "Vienna",
     latitude: 48.2082,
     longitude: 16.3738,
+    id: "496da12b-6bbd-4939-9776-0af8fe7e21a6",
+    isCompleted: false,
     img: "https://images.unsplash.com/photo-1485081669829-bacb8c7bb1f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YXVzdHJpYXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60",
   },
   {
@@ -32,6 +40,8 @@ export const places = [
     capital: "Bridgetown",
     latitude: 13.1132,
     longitude: -59.5988,
+    id: "f39383b1-9a74-4050-8983-e20e85fc8f15",
+    isCompleted: false,
     img: "https://images.unsplash.com/photo-1636728150922-e7361791595a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8YmFyYmFkb3N8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60",
   },
   {
@@ -39,6 +49,8 @@ export const places = [
     capital: "Thimphu",
     latitude: 27.4728,
     longitude: 89.639,
+    id: "2a337052-5334-4d1c-842b-6ace60adb9a6",
+    isCompleted: false,
     img: "https://images.unsplash.com/photo-1567171714498-dff8cf732dd3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Ymh1dGFufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60",
   },
   {
@@ -46,6 +58,8 @@ export const places = [
     capital: "Sarajevo",
     latitude: 43.8564,
     longitude: 18.413,
+    id: "e51f738c-7458-41bb-86a5-838f4082a4b0",
+    isCompleted: false,
     img: "https://images.unsplash.com/photo-1634817819320-c193d2127241?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHNhcmFqZXZvfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60",
   },
   {
@@ -53,6 +67,8 @@ export const places = [
     capital: "Ottawa",
     latitude: 45.4215,
     longitude: -75.6972,
+    id: "c5ff8b1b-eeeb-4adf-b6c2-60fa8ec91381",
+    isCompleted: false,
     img: "https://images.unsplash.com/photo-1503614472-8c93d56e92ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y2FuYWRhfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60",
   },
   {
@@ -60,6 +76,8 @@ export const places = [
     capital: "Praia",
     latitude: 14.933,
     longitude: -23.5133,
+    id: "92aa37cc-abb8-4277-95bc-d7b9060e6021",
+    isCompleted: false,
     img: "https://images.unsplash.com/photo-1564076263935-fa4e59894f24?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y2FibyUyMHZlcmRlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60",
   },
   {
@@ -67,6 +85,8 @@ export const places = [
     capital: "Havana",
     latitude: 23.1136,
     longitude: -82.3666,
+    id: "0c6a16a0-db12-419b-bf21-44dbce91d8da",
+    isCompleted: false,
     img: "https://images.unsplash.com/photo-1500759285222-a95626b934cb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Y3ViYXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60",
   },
   {
@@ -74,6 +94,8 @@ export const places = [
     capital: "Nicosia",
     latitude: 35.1856,
     longitude: 33.3823,
+    id: "7852d5af-24dd-4db3-9141-1f1b0fe3a8c3",
+    isCompleted: false,
     img: "https://images.unsplash.com/photo-1622615821403-5364ad6e25d1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y2hpcHJlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60",
   },
   {
@@ -81,6 +103,8 @@ export const places = [
     capital: "Copenhagen",
     latitude: 55.6761,
     longitude: 12.5683,
+    id: "27fed8ee-2721-4ccc-b991-0b53c4ff8b7d",
+    isCompleted: false,
     img: "https://images.unsplash.com/photo-1575843456098-25dc4244e9f2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8ZGVubWFya3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60",
   },
   {
@@ -88,6 +112,8 @@ export const places = [
     capital: "Cairo",
     latitude: 30.0444,
     longitude: 31.2357,
+    id: "95ba48fc-94dd-489c-9ec9-554ffa06f922",
+    isCompleted: false,
     img: "https://images.unsplash.com/photo-1600520611035-84157ad4084d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8ZWd5cHR8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60",
   },
   {
@@ -95,6 +121,8 @@ export const places = [
     capital: "San Salvador",
     latitude: 13.6929,
     longitude: -89.2182,
+    id: "31d746cc-2452-40e9-a7e6-4f8a6d22d408",
+    isCompleted: false,
     img: "https://images.unsplash.com/photo-1645035564847-1be052a2faf2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8ZWwlMjBzYWx2YWRvciUyMHBhaXN8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60",
   },
   {
@@ -102,6 +130,8 @@ export const places = [
     capital: "Banjul",
     latitude: 13.4557,
     longitude: -16.5814,
+    id: "62d6f9b6-a4aa-49cc-87bd-4c48fb63eae9",
+    isCompleted: false,
     img: "https://images.unsplash.com/photo-1448099940878-e0c48ea3a165?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Z2FtYmlhfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60",
   },
   {
@@ -109,6 +139,8 @@ export const places = [
     capital: "Reykjavik",
     latitude: 64.1466,
     longitude: -21.9426,
+    id: "a31cde69-d0f0-4337-a8d6-459c98ddeef7",
+    isCompleted: false,
     img: "https://images.unsplash.com/photo-1476610182048-b716b8518aae?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8aWNlbGFuZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60",
   },
   {
@@ -116,6 +148,8 @@ export const places = [
     capital: "New Delhi",
     latitude: 28.6139,
     longitude: 77.209,
+    id: "29bd606c-53fb-4579-a527-024fd1ee8bf9",
+    isCompleted: false,
     img: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aW5kaWF8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60",
   },
   {
@@ -123,6 +157,8 @@ export const places = [
     capital: "Jerusalem",
     latitude: 31.7683,
     longitude: 35.2137,
+    id: "15fd771d-527b-4896-a9a2-ab2400ec4228",
+    isCompleted: false,
     img: "https://images.unsplash.com/photo-1556861321-b7a1e5b1c291?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aXNyYWVsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60",
   },
   {
@@ -130,22 +166,26 @@ export const places = [
     capital: "Rome",
     latitude: 41.9028,
     longitude: 12.4964,
+    id: "391bdc69-7a91-48b3-a83a-e66c8bad1531",
+    isCompleted: false,
     img: "https://images.unsplash.com/photo-1542820229-081e0c12af0b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cm9tYXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60",
   },
-
   {
     country: "Japan",
     capital: "Tokyo",
     latitude: 35.6895,
     longitude: 139.6917,
+    id: "23b2bc3a-f77f-45dc-b7a9-63ad0f8bc0b0",
+    isCompleted: false,
     img: "https://images.unsplash.com/photo-1542051841857-5f90071e7989?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8amFwYW58ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60",
   },
-
   {
     country: "Laos",
     capital: "Vientiane",
     latitude: 17.9757,
     longitude: 102.6331,
+    id: "19c269ea-e3ac-488e-849e-2ffa11b5e4ba",
+    isCompleted: false,
     img: "https://images.unsplash.com/photo-1540611025311-01df3cef54b5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFvc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60",
   },
   {
@@ -153,6 +193,8 @@ export const places = [
     capital: "Mexico City",
     latitude: 19.4326,
     longitude: -99.1332,
+    id: "7e05aa18-5fd2-463f-808c-ef267c98b884",
+    isCompleted: false,
     img: "https://images.unsplash.com/photo-1542835435-4fa357baa00b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8bWV4aWNvfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60",
   },
   {
@@ -160,6 +202,8 @@ export const places = [
     capital: "Palikir",
     latitude: 6.9248,
     longitude: 158.1618,
+    id: "4000a819-9a9c-412d-bee7-89713c86a53f",
+    isCompleted: false,
     img: "https://images.unsplash.com/photo-1553602932-f93f674a9aaa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bWljcm9uZXNpYXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60",
   },
   {
@@ -167,6 +211,8 @@ export const places = [
     capital: "Kathmandu",
     latitude: 27.7172,
     longitude: 85.324,
+    id: "a0bb5027-a9ec-4baa-8be8-abfea695a858",
+    isCompleted: false,
     img: "https://images.unsplash.com/photo-1571401835393-8c5f35328320?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8bmVwYWx8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60",
   },
   {
@@ -174,6 +220,8 @@ export const places = [
     capital: "Amsterdam",
     latitude: 52.3667,
     longitude: 4.9,
+    id: "e1d69585-095b-4a9d-bbee-bbde1dc6e143",
+    isCompleted: false,
     img: "https://plus.unsplash.com/premium_photo-1671974489983-083171c0215e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bmV0aGVybGFuZHN8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60",
   },
   {
@@ -181,6 +229,8 @@ export const places = [
     capital: "Wellington",
     latitude: -41.2865,
     longitude: 174.7762,
+    id: "0bd411d2-3a6f-4244-b984-d6bfe4d72ee9",
+    isCompleted: false,
     img: "https://images.unsplash.com/photo-1465056836041-7f43ac27dcb5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bmV3JTIwemVhbGFuZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60",
   },
   {
@@ -188,6 +238,8 @@ export const places = [
     capital: "Hanoi",
     latitude: 21.03,
     longitude: 105.85,
+    id: "2b9498fc-bc7b-4acf-94e3-905c20c6960c",
+    isCompleted: false,
     img: "https://images.unsplash.com/photo-1521993117367-b7f70ccd029d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8dmlldG5hbXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60",
   },
 ];

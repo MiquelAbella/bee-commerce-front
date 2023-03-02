@@ -13,13 +13,13 @@ export const ButtonsGroup = ({ countries, setCountries }) => {
   const handleSaveTrip = (e) => {
     const currentCountry = countries[countries.length - 1];
     setCountries(
-      countries.filter((country) => country.capital !== currentCountry.capital)
+      countries.filter((country) => country.id !== currentCountry.id)
     );
     setWishList({
       ...wishList,
       [e.target.name]: [...wishList[e.target.name], currentCountry],
     });
-    setPieces(200);
+    setPieces(500);
     setTimeout(() => {
       setPieces(0);
     }, 1000);

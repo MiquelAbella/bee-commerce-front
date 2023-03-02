@@ -10,7 +10,7 @@ export const WishListPicker = () => {
     <div className="realtive h-screen w-screen flex flex-col items-center justify-end">
       <Link
         to="/cart"
-        className="absolute top-[1vh] right-[1vw] text-gray-500 text-lg md:text-xl"
+        className="absolute top-[1vh] right-[1vw] text-gray-500 text-lg md:text-xl z-40"
       >
         GO TO WISH LIST
       </Link>
@@ -18,13 +18,18 @@ export const WishListPicker = () => {
         WHO DO YOU WANT TO TRAVEL WITH?
       </h1>
 
-      {countries.length && countries.map((place) => {
-        const rand = Math.floor(Math.random() * 12);
+      {(countries.length &&
+        countries.map((place) => {
+          const rand = Math.floor(Math.random() * 12);
 
-        const rotation = `rotate-${rand}`;
+          const rotation = `rotate-${rand}`;
 
-        return <Card key={place.country} place={place} rotation={rotation} />;
-      })|| <p className="absolute top-0 left-0 right-0 bottom-0 m-auto flex items-center justify-center">We don't have more suggestions for you...</p>}
+          return <Card key={place.country} place={place} rotation={rotation} />;
+        })) || (
+        <p className="absolute top-0 left-0 right-0 bottom-0 m-auto flex items-center justify-center">
+          We don't have more suggestions for you...
+        </p>
+      )}
       <ButtonsGroup countries={countries} setCountries={setCountries} />
     </div>
   );
