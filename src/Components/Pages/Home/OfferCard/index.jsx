@@ -61,11 +61,11 @@ export const OfferCard = ({
   };
 
   return (
-    <div className="w-full h-[50vh]  z-10 flex flex-col gap-4 items-center justify-center relative">
-      <div className="w-5/6 h-5/6 bg-white/70 flex flex-col gap-4 items-center justify-center rounded-lg">
-        <Typography text={`2 passengers`} />
+    <div className="w-full min-h-[50vh] z-10 flex flex-col gap-4 items-center justify-center relative">
+      <div className="w-5/6 h-full bg-white/70 flex flex-col gap-4 items-center justify-center rounded-lg">
         <Typography text={`From: ${city?.capital}`} />
         <Typography text={`To: ${destination?.capital}`} />
+        <Typography text={`2 passengers`} />
         <Typography text={`${price} € / passenger`} />
         <Typography text={`${today} - ${nextWeek}`} />
         <Button text="Book" onClick={handleBook} />

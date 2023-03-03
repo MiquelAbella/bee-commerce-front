@@ -40,7 +40,7 @@ export const HotelCard = ({
       <img src={image} alt="" className="h-[20vh] object-cover rounded-t-md" />
       <div className="p-4">
         <Typography text={hotel} />
-        <Typography text={city.capital} />
+        {/* <Typography text={city.capital} /> */}
         <Typography text={`${price} € / PERSON`} />
       </div>
       <div className="flex items-end justify-end p-4">

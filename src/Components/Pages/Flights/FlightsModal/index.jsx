@@ -21,6 +21,7 @@ export const FlightsModal = ({ closeModal }) => {
         <Typography text={`Passengers: ${passengers}`} />
         <Typography text={`Price ${price} €`} />
         <div className="flex gap-6 md:gap-12">
+          <Button color="danger" text="Cancel" onClick={() => closeModal()} />
           <Link to="/hotels">
             <Button text="Acommodation" color="secondary" />
           </Link>

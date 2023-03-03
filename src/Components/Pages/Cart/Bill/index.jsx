@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import CartContext from "../../../../context/CartContext";
-import { Typography } from "../../../index";
+import { Button, Typography } from "../../../index";
 
-export const Bill = () => {
-  const { cart, setCart } = useContext(CartContext);
+export const Bill = ({paymentRef}) => {
+  const { cart } = useContext(CartContext);
   const { flight, accomodation: hotel } = cart;
 
   const calculateDays = (startDate, endDate) => {
@@ -19,6 +19,14 @@ export const Bill = () => {
 
   const flightPrice = flight.price ? flight.price : 0;
 
+  const scrollToPayment = () =>{
+    window.scrollTo({
+        top: paymentRef.current.offsetTop,
+        left: 0,
+        behavior: "smooth",
+      });
+  }
+
   return (
     <div className="flex flex-col items-center">
       <div className="p-8 text-center">
@@ -33,7 +41,7 @@ export const Bill = () => {
           src="https://images.unsplash.com/photo-1522199710521-72d69614c702?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1472&q=80"
           alt=""
         />
-        <div className="z-10 bg-white/80 flex flex-col md:flex-row gap-8 items-start justify-start py-12 w-auto m-4 px-24  flex-wrap text-center">
+        <div className="z-10 bg-white/80 flex flex-col md:flex-row gap-8 items-start justify-start py-12 w-auto m-4 px-4 sm:px-24  flex-wrap text-center">
           {flight.destination && (
             <div className="flex flex-col items-start justify-start h-full md:w-auto text-start">
               <Typography text="FLIGHT" type="subtitle" />
@@ -56,15 +64,20 @@ export const Bill = () => {
             </div>
           )}
           {hotel.destination || flight.destination ? (
-            <div className="flex flex-col items-start justify-start h-full md:w-auto text-start">
-              <Typography text="BILL" type="subtitle" />
-              {flight.destination && (
-                <Typography text={`Flight: ${flightPrice} €`} />
-              )}
-              {hotel.destination && (
-                <Typography text={`Hotel: ${hotelPrice} €`} />
-              )}
-              <Typography text={`Total: ${hotelPrice + flightPrice} €`} />
+            <div>
+              <div className="flex flex-col items-start justify-start h-full md:w-auto text-start">
+                <Typography text="BILL" type="subtitle" />
+                {flight.destination && (
+                  <Typography text={`Flight: ${flightPrice} €`} />
+                )}
+                {hotel.destination && (
+                  <Typography text={`Hotel: ${hotelPrice} €`} />
+                )}
+                <Typography text={`Total: ${hotelPrice + flightPrice} €`} />
+              </div>
+              <div className="mt-4">
+              <Button text="Payment" onClick={scrollToPayment}/>
+              </div>
             </div>
           ) : (
             <Typography text="Nothing added to cart" type="big" />

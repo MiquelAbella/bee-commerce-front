@@ -3,10 +3,12 @@ import { Typography } from "../../components";
 import { Bill } from "../../components/Pages/Cart/Bill";
 import { Payment } from "../../components/Pages/Cart/Payment";
 import CartContext from "../../context/CartContext";
+import { useRef } from "react";
 
 export const Cart = () => {
   const { cart } = useContext(CartContext);
   const { flight, accomodation } = cart;
+  const paymentRef = useRef(null);
 
   const city = accomodation.destination
     ? accomodation.destination.toLowerCase()
@@ -23,7 +25,7 @@ export const Cart = () => {
   return (
     <div className="mt-24">
       <div>
-        <Bill />
+        <Bill paymentRef={paymentRef}/>
       </div>
       {city && (
         <div className="flex flex-col p-8">
@@ -68,7 +70,7 @@ export const Cart = () => {
         </div>
       )}
       <div>
-        <Payment />
+        <Payment paymentRef={paymentRef}/>
       </div>
     </div>
   );

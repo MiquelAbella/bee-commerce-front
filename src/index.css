@@ -6,8 +6,13 @@
 
 * {
   font-family: "Montserrat", "sans-serif";
-  overflow-x: hidden;
+  overflow: hidden;
+  
   scroll-behavior: smooth;
+}
+
+html{
+    overflow-y: scroll;
 }
 
 ::-webkit-scrollbar {

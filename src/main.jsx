@@ -5,9 +5,9 @@ import "./index.css";
 import { CartProvider } from "./context/CartContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+//   <React.StrictMode>
     <CartProvider>
       <Router></Router>
     </CartProvider>
-  </React.StrictMode>
+//   </React.StrictMode>
 );

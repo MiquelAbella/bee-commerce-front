@@ -2,8 +2,6 @@ import { useContext, useEffect, useMemo, useRef, useState } from "react";
 import { Typography, Video } from "../../components";
 import { Form, HotelCard } from "../../Components/Pages/Hotels";
 
-import { hotels } from "../../data/hotels";
-
 import hotelVideo from "../../assets/videos/hotel.mp4";
 import CartContext from "../../context/CartContext";
 import { HotelsModal } from "../../Components/Pages/Hotels/HotelsModal";
@@ -12,7 +10,11 @@ export const Hotels = () => {
   const { cart } = useContext(CartContext);
   const [isHotelsModalOpen, setIsHotelsModalOpen] = useState(false);
   const [isFormValid, setIsFormValid] = useState(false);
-  const hotelsRef = useRef(null);
+
+  const [allHotels, setAllHotels] = useState([]);
+  const [hotelsInCity, setHotelsInCity] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
   const formRef = useRef(null);
 
   const { destination, startDate, endDate, passengers } = cart.flight;
@@ -24,10 +26,18 @@ export const Hotels = () => {
     people: passengers || 1,
   });
 
-  const hotelsInCity = useMemo(
-    () => hotels.filter((hotel) => hotel.city.capital === formData.destination),
-    [formData.destination]
-  );
+  useEffect(() => {
+    setIsLoading(true);
+    const getAllHotels = async () => {
+      const res = await fetch("http://localhost:3000/hotels");
+      const data = await res.json();
+      setAllHotels(data);
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1000);
+    };
+    getAllHotels();
+  }, []);
 
   const validateForm = () => {
     const { destination, startDate, endDate, people } = formData;
@@ -53,13 +63,15 @@ export const Hotels = () => {
           ref={formRef}
         >
           <Form
+            setHotelsInCity={setHotelsInCity}
+            allHotels={allHotels}
             setFormData={setFormData}
             formData={formData}
-            hotelsRef={hotelsRef}
+            isLoading={isLoading}
           />
         </div>
       </div>
-      <div className="p-8 pb-0" ref={hotelsRef}>
+      <div className="p-8 pb-0">
         <Typography text="HOTELS" type="important" />
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 p-6">
@@ -77,7 +89,7 @@ export const Hotels = () => {
             );
           })
         ) : (
-          <Typography text="PLEASE, SELECT A CITY" />
+          <Typography text="PLEASE, FILL THE FORM" />
         )}
       </div>
       {isHotelsModalOpen && (

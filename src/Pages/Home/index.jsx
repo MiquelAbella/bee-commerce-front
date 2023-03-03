@@ -3,7 +3,6 @@ import { GridItem, HomeModal, SpecialOffers } from "../../Components/Pages";
 import { Carousel, GridContainer, Typography } from "../../Components";
 
 import { bannerCities } from "../../data/bannerCities";
-import { cities } from "../../data/flightsGenerator";
 import { getDistanceFromLatLonInKm } from "../../utils/calculateDistance";
 
 import img1 from "../../assets/images/countries/helsinki.jpg";
@@ -16,6 +15,21 @@ import img6 from "../../assets/images/countries/varsow.jpg";
 const images = [img1, img2, img3, img4, img5, img6];
 
 export const Home = () => {
+  const [allCities, setAllCities] = useState([]);
+
+  useEffect(() => {
+    const getAllCities = async () => {
+      try {
+        const res = await fetch("http://localhost:3000/cities");
+        const data = await res.json();
+        setAllCities(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getAllCities();
+  }, []);
+
   const [location, setLocation] = useState(
     JSON.parse(localStorage.getItem("location")) || null
   );
@@ -26,7 +40,7 @@ export const Home = () => {
   const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false);
 
   const getNearestCity = () => {
-    cities.sort((a, b) => {
+    const nearest = allCities.sort((a, b) => {
       return (
         getDistanceFromLatLonInKm(
           a.latitude,
@@ -42,8 +56,8 @@ export const Home = () => {
         )
       );
     });
-    setNearestCity(cities[0]);
-    localStorage.setItem("nearestCity", JSON.stringify(cities[0]));
+    setNearestCity(allCities[0]);
+    localStorage.setItem("nearestCity", JSON.stringify(allCities[0]));
   };
 
   const getLocation = () => {
@@ -72,7 +86,7 @@ export const Home = () => {
     if (location?.lat && !nearestCity) {
       getNearestCity();
     }
-  }, [location]);
+  }, [location, allCities]);
 
   return (
     <div className="mt-24">
