@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { GridItem, SpecialOffers } from "../../Components/Pages";
+import { GridItem, HomeModal, SpecialOffers } from "../../Components/Pages";
 import { Carousel, GridContainer, Typography } from "../../Components";
 
 import { bannerCities } from "../../data/bannerCities";
@@ -22,6 +22,8 @@ export const Home = () => {
   const [nearestCity, setNearestCity] = useState(
     JSON.parse(localStorage.getItem("nearestCity")) || null
   );
+
+  const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false);
 
   const getNearestCity = () => {
     cities.sort((a, b) => {
@@ -107,7 +109,10 @@ export const Home = () => {
           <div className="m-8 mt-14 md:px-12">
             <Typography text="SPECIAL OFFERS" type="important" />
           </div>
-          <SpecialOffers city={nearestCity} />
+          <SpecialOffers
+            city={nearestCity}
+            setIsConfirmationModalOpen={setIsConfirmationModalOpen}
+          />
         </>
       ) : (
         <div className="flex items-center justify-center m-10 bg-red-500 p-6">
@@ -116,6 +121,9 @@ export const Home = () => {
             color="white"
           />
         </div>
+      )}
+      {isConfirmationModalOpen && (
+        <HomeModal closeModal={() => setIsConfirmationModalOpen(false)} />
       )}
     </div>
   );

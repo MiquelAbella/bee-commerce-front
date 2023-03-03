@@ -4,7 +4,7 @@ import { Typography } from "../Typography";
 
 export const NavBar = () => {
   return (
-    <div className="fixed top-0 flex items-center justify-around p-4 w-full bg-white/80">
+    <div className="fixed top-0 flex items-center justify-around p-4 w-full bg-white/80 z-40">
       <Link to="/">
         <Typography text="HOME" isLink />
       </Link>

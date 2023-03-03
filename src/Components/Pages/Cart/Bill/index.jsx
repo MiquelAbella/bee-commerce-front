@@ -18,7 +18,7 @@ export const Bill = () => {
     : 0;
 
   const flightPrice = flight.price ? flight.price : 0;
-  console.log(hotelPrice, flightPrice);
+
   return (
     <div className="flex flex-col items-center">
       <div className="p-8 text-center">

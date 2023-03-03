@@ -4,7 +4,7 @@ import { getDistanceFromLatLonInKm } from "../../../../utils/calculateDistance";
 import { cities } from "../../../../data/flightsGenerator";
 import CartContext from "../../../../context/CartContext";
 
-export const Form = ({ formData, setFormData }) => {
+export const Form = ({ formData, setFormData, setIsFlightsModalOpen }) => {
   const { cart, setCart } = useContext(CartContext);
 
   const [price, setPrice] = useState(null);
@@ -27,7 +27,8 @@ export const Form = ({ formData, setFormData }) => {
       return city.capital === formData.destination;
     })[0];
 
-    setCart({ ...cart, flight: {...formData, country: country.country} });
+    setCart({ ...cart, flight: { ...formData, country: country.country } });
+    setIsFlightsModalOpen(true);
   };
 
   useEffect(() => {
@@ -152,11 +153,11 @@ export const Form = ({ formData, setFormData }) => {
           onChange={handleChangeFormData}
         />
       </div>
-      <div className="col-span-1 w-full flex items-center justify-between gap-2 mt-4">
-        <Button text="Book" onClick={handleSubmit} disabled={!isFormValid} />
+      <div className="col-span-1 w-full flex items-center justify-end gap-2 md:gap-6 mt-4">
         {price && (
           <Typography text={`total: ${price} €`} type="big" color="white" />
         )}
+        <Button text="Book" onClick={handleSubmit} disabled={!isFormValid} />
       </div>
     </div>
   );

@@ -1,9 +1,9 @@
 import { Button } from "../../../Button";
 import { Input } from "../../../Input";
-import {cities} from "../../../../data/flightsGenerator"
+import { cities } from "../../../../data/flightsGenerator";
 import { Typography } from "../../../Typography";
 
-export const Form = ({ setFormData, formData }) => {
+export const Form = ({ setFormData, formData, hotelsRef }) => {
   const handleChangeFormData = (e) => {
     if (e.target.type === "number") {
       setFormData({ ...formData, [e.target.name]: parseInt(e.target.value) });
@@ -12,10 +12,18 @@ export const Form = ({ setFormData, formData }) => {
     }
   };
 
+  const handleScrollToHotels = () => {
+    window.scrollTo({
+      top: hotelsRef.current.offsetTop,
+      left: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <div className="flex flex-col gap-3 bg-black/50 rounded-md items-start justify-around min-h-1/2 w-2/3 p-6">
       <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-3 col-span-2">
-         <div className="flex flex-col">
+        <div className="flex flex-col">
           <label htmlFor="destination-selector">
             <Typography text="Destination" labelColor="text-slate-300" />
           </label>
@@ -67,7 +75,7 @@ export const Form = ({ setFormData, formData }) => {
         />
       </div>
       <div className="col-span-2 w-full flex items-center justify-end">
-        <Button text="Search"/>
+        <Button text="Search" onClick={handleScrollToHotels} />
       </div>
     </div>
   );

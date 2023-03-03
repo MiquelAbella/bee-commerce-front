@@ -2,12 +2,27 @@ import { useContext } from "react";
 import CartContext from "../../../../context/CartContext";
 import { Button, Typography } from "../../../index";
 
-export const HotelCard = ({ accomodation, formData, isFormValid }) => {
+export const HotelCard = ({
+  accomodation,
+  formData,
+  isFormValid,
+  formRef,
+  setIsHotelsModalOpen,
+}) => {
   const { hotel, image, price, city } = accomodation;
 
   const { cart, setCart } = useContext(CartContext);
 
   const handleBookHotel = () => {
+    if (!isFormValid) {
+      window.scrollTo({
+        top: formRef.current.offsetTop,
+        left: 0,
+        behavior: "smooth",
+      });
+      alert("Please, fill all the form fields");
+      return;
+    }
     setCart({
       ...cart,
       accomodation: {
@@ -17,6 +32,7 @@ export const HotelCard = ({ accomodation, formData, isFormValid }) => {
         country: city.country,
       },
     });
+    setIsHotelsModalOpen(true);
   };
 
   return (
@@ -28,7 +44,7 @@ export const HotelCard = ({ accomodation, formData, isFormValid }) => {
         <Typography text={`${price} € / PERSON`} />
       </div>
       <div className="flex items-end justify-end p-4">
-        <Button disabled={!isFormValid} text="Book" onClick={handleBookHotel} />
+        <Button text="Book" onClick={handleBookHotel} />
       </div>
     </div>
   );

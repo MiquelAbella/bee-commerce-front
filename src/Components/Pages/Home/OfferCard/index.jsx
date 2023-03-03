@@ -4,7 +4,11 @@ import { Typography } from "../../../Typography";
 import { getDistanceFromLatLonInKm } from "../../../../utils/calculateDistance";
 import CartContext from "../../../../context/CartContext";
 
-export const OfferCard = ({ city, destination }) => {
+export const OfferCard = ({
+  city,
+  destination,
+  setIsConfirmationModalOpen,
+}) => {
   const [price, setPrice] = useState(null);
   const { cart, setCart } = useContext(CartContext);
 
@@ -50,9 +54,10 @@ export const OfferCard = ({ city, destination }) => {
         price: price * 2,
         startDate: today,
         endDate: nextWeek,
-        passengers: 2
+        passengers: 2,
       },
     });
+    setIsConfirmationModalOpen(true);
   };
 
   return (

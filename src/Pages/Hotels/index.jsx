@@ -1,15 +1,19 @@
-import { useContext, useEffect, useMemo, useState } from "react";
+import { useContext, useEffect, useMemo, useRef, useState } from "react";
 import { Typography, Video } from "../../components";
-import {  Form, HotelCard } from "../../Components/Pages/Hotels";
+import { Form, HotelCard } from "../../Components/Pages/Hotels";
 
 import { hotels } from "../../data/hotels";
 
 import hotelVideo from "../../assets/videos/hotel.mp4";
 import CartContext from "../../context/CartContext";
+import { HotelsModal } from "../../Components/Pages/Hotels/HotelsModal";
 
 export const Hotels = () => {
   const { cart } = useContext(CartContext);
+  const [isHotelsModalOpen, setIsHotelsModalOpen] = useState(false);
   const [isFormValid, setIsFormValid] = useState(false);
+  const hotelsRef = useRef(null);
+  const formRef = useRef(null);
 
   const { destination, startDate, endDate, passengers } = cart.flight;
 
@@ -44,11 +48,18 @@ export const Hotels = () => {
       </div>
       <div className="relative h-[60vh] w-full overflow-hidden">
         <Video src={hotelVideo} />
-        <div className="absolute h-full w-full top-0 bottom-0 left-0 right-0 m-auto flex items-center justify-center">
-          <Form setFormData={setFormData} formData={formData} />
+        <div
+          className="absolute h-full w-full top-0 bottom-0 left-0 right-0 m-auto flex items-center justify-center"
+          ref={formRef}
+        >
+          <Form
+            setFormData={setFormData}
+            formData={formData}
+            hotelsRef={hotelsRef}
+          />
         </div>
       </div>
-      <div className="p-8 pb-0">
+      <div className="p-8 pb-0" ref={hotelsRef}>
         <Typography text="HOTELS" type="important" />
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 p-6">
@@ -58,9 +69,10 @@ export const Hotels = () => {
               <HotelCard
                 isFormValid={isFormValid}
                 formData={formData}
-                setFormData={setFormData}
                 key={`${hotel.hotel}-${i}`}
                 accomodation={hotel}
+                formRef={formRef}
+                setIsHotelsModalOpen={setIsHotelsModalOpen}
               />
             );
           })
@@ -68,6 +80,9 @@ export const Hotels = () => {
           <Typography text="PLEASE, SELECT A CITY" />
         )}
       </div>
+      {isHotelsModalOpen && (
+        <HotelsModal closeModal={() => setIsHotelsModalOpen(false)} />
+      )}
     </div>
   );
 };
