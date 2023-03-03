@@ -1,14 +1,13 @@
 import { Button } from "../../../Button";
 import { Input } from "../../../Input";
-import { cities } from "../../../../data/flightsGenerator";
 import { Typography } from "../../../Typography";
 
 export const Form = ({
   setFormData,
   formData,
-  hotelsRef,
   setHotelsInCity,
   allHotels,
+  cities,
   isLoading,
 }) => {
   const handleChangeFormData = (e) => {

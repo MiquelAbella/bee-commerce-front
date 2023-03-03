@@ -1,4 +1,4 @@
-import { useContext, useEffect, useMemo, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { Typography, Video } from "../../components";
 import { Form, HotelCard } from "../../Components/Pages/Hotels";
 
@@ -12,6 +12,7 @@ export const Hotels = () => {
   const [isFormValid, setIsFormValid] = useState(false);
 
   const [allHotels, setAllHotels] = useState([]);
+  const [allCities, setAllCities] = useState([]);
   const [hotelsInCity, setHotelsInCity] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -37,6 +38,16 @@ export const Hotels = () => {
       }, 1000);
     };
     getAllHotels();
+  }, []);
+ 
+  useEffect(() => {
+    setIsLoading(true);
+    const getAllCities = async () => {
+      const res = await fetch("http://localhost:3000/cities");
+      const data = await res.json();
+      setAllCities(data);
+    };
+    getAllCities();
   }, []);
 
   const validateForm = () => {
@@ -68,6 +79,7 @@ export const Hotels = () => {
             setFormData={setFormData}
             formData={formData}
             isLoading={isLoading}
+            cities={allCities}
           />
         </div>
       </div>

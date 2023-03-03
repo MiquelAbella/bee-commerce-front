@@ -1,10 +1,19 @@
-import { cities } from "../../../../data/flightsGenerator";
-
 import Map, { Marker } from "react-map-gl";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export const MapView = ({ formData, setFormData }) => {
   const mapRef = useRef();
+  const [cities, setCities] = useState([]);
+
+  useEffect(() => {
+    const getAllCities = async () => {
+      const res = await fetch("http://localhost:3000/cities");
+      const data = await res.json();
+      setCities(data);
+    };
+
+    getAllCities();
+  }, []);
 
   return (
     <div>

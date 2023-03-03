@@ -1,10 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import { Button, Input, Typography } from "../../../index";
 import { getDistanceFromLatLonInKm } from "../../../../utils/calculateDistance";
-import { cities } from "../../../../data/flightsGenerator";
 import CartContext from "../../../../context/CartContext";
 
-export const Form = ({ formData, setFormData, setIsFlightsModalOpen }) => {
+export const Form = ({ formData, setFormData, setIsFlightsModalOpen, cities }) => {
   const { cart, setCart } = useContext(CartContext);
 
   const [price, setPrice] = useState(null);
