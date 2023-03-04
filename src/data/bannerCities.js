@@ -22,7 +22,7 @@ export const bannerCities = [
     text: "Get involved in the Polish history"
   },
   {
-    city: "Lofoten",
+    city: "Oslo",
     duration: 10,
     price: 784,
     img: img3,
@@ -38,7 +38,7 @@ export const bannerCities = [
     text: "The most cosmopolitan city"
   },
   {
-    city: "Kenia",
+    city: "Accra",
     duration: 14,
     price: 965,
     img: img5,

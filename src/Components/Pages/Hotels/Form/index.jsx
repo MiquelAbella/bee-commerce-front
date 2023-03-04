@@ -29,7 +29,7 @@ export const Form = ({
       })
     );
     setTimeout(() => {
-      window.scrollTo(0, document.body.scrollHeight);
+      window.scrollTo({ top: 99999, behavior: "smooth" });
     }, 200);
   };
 

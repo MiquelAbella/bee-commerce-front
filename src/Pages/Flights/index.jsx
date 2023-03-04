@@ -1,11 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Typography } from "../../Components";
-import { Form, MapView } from "../../Components/Pages/Flights";
-
-import planeImg from "../../assets/images/planeFromGround.jpg";
-import { FlightsModal } from "../../Components/Pages/Flights/FlightsModal";
+import { FlightsModal, Form, MapView } from "../../Components/Pages/Flights";
 import { useFetch } from "../../hooks/useFetch";
 import CartContext from "../../context/CartContext";
+
+import planeImg from "../../assets/images/planeFromGround.jpg";
 
 export const Flights = () => {
   const { cart } = useContext(CartContext);
@@ -13,6 +12,10 @@ export const Flights = () => {
   const [allCities, setAllCities] = useState(null);
   const [isFlightsModalOpen, setIsFlightsModalOpen] = useState(false);
   const { data, isLoading, error } = useFetch("http://localhost:3000/cities");
+
+  useEffect(() => {
+    window.scrollTo({ top: 0});
+  }, []);
 
   const [formData, setFormData] = useState({
     origin: JSON.parse(localStorage.getItem("nearestCity"))?.capital || "",

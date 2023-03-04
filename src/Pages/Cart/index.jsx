@@ -1,14 +1,16 @@
-import React, { useContext } from "react";
-import { Typography } from "../../components";
-import { Bill } from "../../components/Pages/Cart/Bill";
-import { Payment } from "../../components/Pages/Cart/Payment";
+import { useContext, useEffect, useRef } from "react";
 import CartContext from "../../context/CartContext";
-import { useRef } from "react";
+import { Typography } from "../../components";
+import { Bill, Payment } from "../../Components/Pages/Cart";
 
 export const Cart = () => {
   const { cart } = useContext(CartContext);
   const { flight, accomodation } = cart;
   const paymentRef = useRef(null);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, []);
 
   const city = accomodation.destination
     ? accomodation.destination.toLowerCase()
@@ -25,7 +27,7 @@ export const Cart = () => {
   return (
     <div className="mt-24">
       <div>
-        <Bill paymentRef={paymentRef}/>
+        <Bill paymentRef={paymentRef} />
       </div>
       {city && (
         <div className="flex flex-col p-8">
@@ -70,7 +72,7 @@ export const Cart = () => {
         </div>
       )}
       <div>
-        <Payment paymentRef={paymentRef}/>
+        <Payment paymentRef={paymentRef} />
       </div>
     </div>
   );

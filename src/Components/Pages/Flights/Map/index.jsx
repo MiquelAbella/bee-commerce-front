@@ -33,7 +33,7 @@ export const MapView = ({ formData, setFormData }) => {
                   return (
                     <Marker
                       onClick={() => {
-                        window.scrollTo(0, 0);
+                        window.scrollTo({ top: 0, behavior: "smooth" });
                         setFormData({ ...formData, destination: city.capital });
                       }}
                       key={`${city}-${i}`}

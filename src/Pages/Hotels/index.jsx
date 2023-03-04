@@ -1,11 +1,10 @@
 import { useContext, useEffect, useRef, useState } from "react";
+import { useFetch } from "../../hooks/useFetch";
+import CartContext from "../../context/CartContext";
 import { Typography, Video } from "../../components";
-import { Form, HotelCard } from "../../Components/Pages/Hotels";
+import { Form, HotelCard, HotelsModal } from "../../Components/Pages/Hotels";
 
 import hotelVideo from "../../assets/videos/hotel.mp4";
-import CartContext from "../../context/CartContext";
-import { HotelsModal } from "../../Components/Pages/Hotels/HotelsModal";
-import { useFetch } from "../../hooks/useFetch";
 
 export const Hotels = () => {
   const { cart } = useContext(CartContext);
@@ -43,6 +42,10 @@ export const Hotels = () => {
       destination.length && endDate.length && startDate.length && people > 0
     );
   };
+
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, []);
 
   useEffect(() => {
     validateForm();

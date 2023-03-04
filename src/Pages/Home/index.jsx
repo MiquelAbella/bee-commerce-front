@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useFetch } from "../../hooks/useFetch";
+
 import { GridItem, HomeModal, SpecialOffers } from "../../Components/Pages";
 import { Carousel, GridContainer, Typography } from "../../Components";
 
 import { bannerCities } from "../../data/bannerCities";
 import { getDistanceFromLatLonInKm } from "../../utils/calculateDistance";
-import { useFetch } from "../../hooks/useFetch";
 
 import img1 from "../../assets/images/countries/helsinki.jpg";
 import img2 from "../../assets/images/countries/athens.jpg";
@@ -20,6 +21,10 @@ export const Home = () => {
   const { data, isLoading, error } = useFetch("http://localhost:3000/cities");
 
   useEffect(() => {
+    window.scrollTo({ top: 0});
+  }, []);
+
+  useEffect(() => {
     setAllCities(data);
   }, [data]);
 
@@ -27,7 +32,7 @@ export const Home = () => {
     JSON.parse(localStorage.getItem("location")) || null
   );
   const [nearestCity, setNearestCity] = useState(
-    localStorage.getItem("nearestCity") !== "undefined"
+    localStorage.getItem("nearestCity")
       ? JSON.parse(localStorage.getItem("nearestCity"))
       : null
   );
@@ -51,8 +56,8 @@ export const Home = () => {
         )
       );
     });
-    setNearestCity(allCities[0]);
-    localStorage.setItem("nearestCity", JSON.stringify(allCities[0]));
+    setNearestCity(nearest[0]);
+    localStorage.setItem("nearestCity", JSON.stringify(nearest[0]));
   };
 
   const getLocation = () => {
@@ -78,7 +83,7 @@ export const Home = () => {
       );
     }
 
-    if (location?.lat && !nearestCity) {
+    if (location?.lat && allCities) {
       getNearestCity();
     }
   }, [location, allCities]);

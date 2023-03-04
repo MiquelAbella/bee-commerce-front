@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+import { Button } from "../../../Button";
 
 export const GridItem = ({ img, city, text, span }) => {
   const [isHovered, setIsHovered] = useState(null);
 
   return (
-    <div
+    <NavLink
+      to="/flights"
       className={`relative ${span} h-full`}
       onMouseEnter={() => setIsHovered(0)}
       onMouseLeave={() => setIsHovered(null)}
@@ -20,6 +23,6 @@ export const GridItem = ({ img, city, text, span }) => {
         <p className="overflow-hidden text-4xl md:text-6xl">{city}</p>
         <p className="overflow-hidden text-xl md:text-3xl ml-12">{text}</p>
       </div>
-    </div>
+    </NavLink>
   );
 };
