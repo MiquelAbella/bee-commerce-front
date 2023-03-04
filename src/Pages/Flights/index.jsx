@@ -1,23 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Typography } from "../../Components";
 import { Form, MapView } from "../../Components/Pages/Flights";
 
 import planeImg from "../../assets/images/planeFromGround.jpg";
 import { FlightsModal } from "../../Components/Pages/Flights/FlightsModal";
 import { useFetch } from "../../hooks/useFetch";
+import CartContext from "../../context/CartContext";
 
 export const Flights = () => {
+  const { cart } = useContext(CartContext);
+  const { destination, startDate, endDate, people } = cart.accomodation;
   const [allCities, setAllCities] = useState(null);
   const [isFlightsModalOpen, setIsFlightsModalOpen] = useState(false);
   const { data, isLoading, error } = useFetch("http://localhost:3000/cities");
 
   const [formData, setFormData] = useState({
     origin: JSON.parse(localStorage.getItem("nearestCity"))?.capital || "",
-    destination: "",
-    startDate: "",
-    endDate: "",
+    destination: destination || "",
+    startDate: startDate || "",
+    endDate: endDate || "",
     price: 0,
-    passengers: 1,
+    passengers: people || 1,
   });
 
   useEffect(() => {

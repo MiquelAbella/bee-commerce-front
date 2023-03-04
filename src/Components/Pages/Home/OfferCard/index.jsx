@@ -10,7 +10,7 @@ export const OfferCard = ({
   setIsConfirmationModalOpen,
 }) => {
   const [price, setPrice] = useState(null);
-  const { cart, setCart } = useContext(CartContext);
+  const { cart, bookFlight } = useContext(CartContext);
 
   const getPrice = () => {
     const price = Math.floor(
@@ -46,16 +46,13 @@ export const OfferCard = ({
     .split("T")[0];
 
   const handleBook = () => {
-    setCart({
-      ...cart,
-      flight: {
-        origin: city.capital,
-        destination: destination.capital,
-        price: price * 2,
-        startDate: today,
-        endDate: nextWeek,
-        passengers: 2,
-      },
+    bookFlight({
+      origin: city.capital,
+      destination: destination.capital,
+      price: price * 2,
+      startDate: today,
+      endDate: nextWeek,
+      passengers: 2,
     });
     setIsConfirmationModalOpen(true);
   };

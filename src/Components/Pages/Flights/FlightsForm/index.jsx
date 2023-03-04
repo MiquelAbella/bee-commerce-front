@@ -3,8 +3,13 @@ import { Button, Input, Typography } from "../../../index";
 import { getDistanceFromLatLonInKm } from "../../../../utils/calculateDistance";
 import CartContext from "../../../../context/CartContext";
 
-export const Form = ({ formData, setFormData, setIsFlightsModalOpen, cities }) => {
-  const { cart, setCart } = useContext(CartContext);
+export const Form = ({
+  formData,
+  setFormData,
+  setIsFlightsModalOpen,
+  cities,
+}) => {
+  const { bookHotel } = useContext(CartContext);
 
   const [price, setPrice] = useState(null);
   const [isFormValid, setIsFormValid] = useState(false);
@@ -25,8 +30,7 @@ export const Form = ({ formData, setFormData, setIsFlightsModalOpen, cities }) =
     const country = cities.filter((city) => {
       return city.capital === formData.destination;
     })[0];
-
-    setCart({ ...cart, flight: { ...formData, country: country.country } });
+    bookHotel({ ...formData, country: country.country });
     setIsFlightsModalOpen(true);
   };
 

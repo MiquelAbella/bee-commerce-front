@@ -11,7 +11,7 @@ export const HotelCard = ({
 }) => {
   const { hotel, image, price, city } = accomodation;
 
-  const { cart, setCart } = useContext(CartContext);
+  const { bookHotel } = useContext(CartContext);
 
   const handleBookHotel = () => {
     if (!isFormValid) {
@@ -23,14 +23,11 @@ export const HotelCard = ({
       alert("Please, fill all the form fields");
       return;
     }
-    setCart({
-      ...cart,
-      accomodation: {
-        ...formData,
-        price: price,
-        name: hotel,
-        country: city.country,
-      },
+    bookHotel({
+      ...formData,
+      price: price,
+      name: hotel,
+      country: city.country,
     });
     setIsHotelsModalOpen(true);
   };

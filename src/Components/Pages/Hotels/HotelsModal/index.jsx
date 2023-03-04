@@ -20,8 +20,8 @@ export const HotelsModal = ({ closeModal }) => {
         <Typography text={`Price ${accomodation.price} € / pp`} />
         <div className="flex gap-6 md:gap-12">
           <Button text="Close" color="danger" onClick={() => closeModal()} />
-          <Link to="/hotels">
-            <Button text="Acommodation" color="secondary" />
+          <Link to="/flights">
+            <Button text="Flights" color="secondary" />
           </Link>
           <Link to="/cart">
             <Button text="Cart" />
