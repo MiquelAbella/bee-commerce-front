@@ -1,5 +1,6 @@
-import { createContext, useEffect, useReducer, useState } from "react";
+import { createContext, useReducer } from "react";
 import { cartReducer, initialState } from "../reducers/cartReducer";
+import { types } from "../types/types";
 
 export const CartContext = createContext(null);
 
@@ -11,11 +12,10 @@ export const CartProvider = ({ children }) => {
       value={{
         cart: state,
         bookFlight: (flight) => {
-          dispatch({ type: "BOOK_FLIGHT", payload: { ...flight } });
+          dispatch({ type: types.bookFlight, payload: { ...flight } });
         },
         bookHotel: (hotel) => {
-            console.log(hotel)
-          dispatch({ type: "BOOK_HOTEL", payload: { ...hotel } });
+          dispatch({ type: types.bookHotel, payload: { ...hotel } });
         },
       }}
     >

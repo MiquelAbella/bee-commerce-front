@@ -9,7 +9,7 @@ export const Form = ({
   setIsFlightsModalOpen,
   cities,
 }) => {
-  const { bookHotel } = useContext(CartContext);
+  const { bookFlight } = useContext(CartContext);
 
   const [price, setPrice] = useState(null);
   const [isFormValid, setIsFormValid] = useState(false);
@@ -30,7 +30,7 @@ export const Form = ({
     const country = cities.filter((city) => {
       return city.capital === formData.destination;
     })[0];
-    bookHotel({ ...formData, country: country.country });
+    bookFlight({ ...formData, country: country.country });
     setIsFlightsModalOpen(true);
   };
 
