@@ -4,6 +4,7 @@ import { Carousel, GridContainer, Typography } from "../../Components";
 
 import { bannerCities } from "../../data/bannerCities";
 import { getDistanceFromLatLonInKm } from "../../utils/calculateDistance";
+import { useFetch } from "../../hooks/useFetch";
 
 import img1 from "../../assets/images/countries/helsinki.jpg";
 import img2 from "../../assets/images/countries/athens.jpg";
@@ -16,25 +17,19 @@ const images = [img1, img2, img3, img4, img5, img6];
 
 export const Home = () => {
   const [allCities, setAllCities] = useState([]);
+  const { data, isLoading, error } = useFetch("http://localhost:3000/cities");
 
   useEffect(() => {
-    const getAllCities = async () => {
-      try {
-        const res = await fetch("http://localhost:3000/cities");
-        const data = await res.json();
-        setAllCities(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getAllCities();
-  }, []);
+    setAllCities(data);
+  }, [data]);
 
   const [location, setLocation] = useState(
     JSON.parse(localStorage.getItem("location")) || null
   );
   const [nearestCity, setNearestCity] = useState(
-    JSON.parse(localStorage.getItem("nearestCity")) || null
+    localStorage.getItem("nearestCity") !== "undefined"
+      ? JSON.parse(localStorage.getItem("nearestCity"))
+      : null
   );
 
   const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false);

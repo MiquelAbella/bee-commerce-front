@@ -5,16 +5,14 @@ import { Form, HotelCard } from "../../Components/Pages/Hotels";
 import hotelVideo from "../../assets/videos/hotel.mp4";
 import CartContext from "../../context/CartContext";
 import { HotelsModal } from "../../Components/Pages/Hotels/HotelsModal";
+import { useFetch } from "../../hooks/useFetch";
 
 export const Hotels = () => {
   const { cart } = useContext(CartContext);
   const [isHotelsModalOpen, setIsHotelsModalOpen] = useState(false);
   const [isFormValid, setIsFormValid] = useState(false);
 
-  const [allHotels, setAllHotels] = useState([]);
-  const [allCities, setAllCities] = useState([]);
   const [hotelsInCity, setHotelsInCity] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
 
   const formRef = useRef(null);
 
@@ -27,28 +25,16 @@ export const Hotels = () => {
     people: passengers || 1,
   });
 
-  useEffect(() => {
-    setIsLoading(true);
-    const getAllHotels = async () => {
-      const res = await fetch("http://localhost:3000/hotels");
-      const data = await res.json();
-      setAllHotels(data);
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 1000);
-    };
-    getAllHotels();
-  }, []);
- 
-  useEffect(() => {
-    setIsLoading(true);
-    const getAllCities = async () => {
-      const res = await fetch("http://localhost:3000/cities");
-      const data = await res.json();
-      setAllCities(data);
-    };
-    getAllCities();
-  }, []);
+  const {
+    data: allHotels,
+    isLoading: hotelsLoading,
+    error: hotelsError,
+  } = useFetch("http://localhost:3000/hotels");
+  const {
+    data: allCities,
+    isLoading: citiesLoading,
+    error: citiesError,
+  } = useFetch("http://localhost:3000/cities");
 
   const validateForm = () => {
     const { destination, startDate, endDate, people } = formData;
@@ -78,7 +64,7 @@ export const Hotels = () => {
             allHotels={allHotels}
             setFormData={setFormData}
             formData={formData}
-            isLoading={isLoading}
+            isLoading={hotelsLoading || citiesLoading}
             cities={allCities}
           />
         </div>

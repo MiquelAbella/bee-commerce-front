@@ -1,17 +1,11 @@
 import React, { useContext } from "react";
 import CartContext from "../../../../context/CartContext";
+import { calculateDays } from "../../../../utils/calculateDays";
 import { Button, Typography } from "../../../index";
 
 export const Bill = ({paymentRef}) => {
   const { cart } = useContext(CartContext);
   const { flight, accomodation: hotel } = cart;
-
-  const calculateDays = (startDate, endDate) => {
-    let difference =
-      new Date(endDate).getTime() - new Date(startDate).getTime();
-    let totalDays = Math.ceil(difference / (1000 * 3600 * 24));
-    return totalDays;
-  };
 
   const hotelPrice = hotel.price
     ? calculateDays(hotel.startDate, hotel.endDate) * hotel.people * hotel.price
@@ -41,7 +35,7 @@ export const Bill = ({paymentRef}) => {
           src="https://images.unsplash.com/photo-1522199710521-72d69614c702?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1472&q=80"
           alt=""
         />
-        <div className="z-10 bg-white/80 flex flex-col md:flex-row gap-8 items-start justify-start py-12 w-auto m-4 px-4 sm:px-24  flex-wrap text-center">
+        <div className="z-10 bg-white/80 flex flex-col md:flex-row gap-8 items-start justify-start py-12 w-auto m-4 px-12 sm:px-24  flex-wrap text-center">
           {flight.destination && (
             <div className="flex flex-col items-start justify-start h-full md:w-auto text-start">
               <Typography text="FLIGHT" type="subtitle" />
