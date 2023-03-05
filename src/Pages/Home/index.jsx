@@ -1,8 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useFetch } from "../../hooks/useFetch";
 
 import { GridItem, HomeModal, SpecialOffers } from "../../Components/Pages";
-import { Carousel, GridContainer, Typography } from "../../Components";
+import {
+  Carousel,
+  GridContainer,
+  Reservation,
+  Typography,
+} from "../../Components";
 
 import { bannerCities } from "../../data/bannerCities";
 import { getDistanceFromLatLonInKm } from "../../utils/calculateDistance";
@@ -13,15 +18,17 @@ import img3 from "../../assets/images/countries/berlin.jpg";
 import img4 from "../../assets/images/countries/lofoten.jpg";
 import img5 from "../../assets/images/countries/kenia.jpg";
 import img6 from "../../assets/images/countries/varsow.jpg";
+import { PDFDownloadLink, PDFViewer } from "@react-pdf/renderer";
+import CartContext from "../../context/CartContext";
 
 const images = [img1, img2, img3, img4, img5, img6];
 
 export const Home = () => {
   const [allCities, setAllCities] = useState([]);
   const { data, isLoading, error } = useFetch("http://localhost:3000/cities");
-
+  const { cart } = useContext(CartContext);
   useEffect(() => {
-    window.scrollTo({ top: 0});
+    window.scrollTo({ top: 0 });
   }, []);
 
   useEffect(() => {

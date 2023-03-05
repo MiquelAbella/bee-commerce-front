@@ -8,3 +8,4 @@ export * from "./NavBar";
 export * from "./Slider";
 export * from "./Typography";
 export * from "./Video";
+export * from "./PDF";

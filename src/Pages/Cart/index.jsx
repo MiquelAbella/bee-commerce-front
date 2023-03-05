@@ -1,12 +1,46 @@
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useEffect, useState } from "react";
 import CartContext from "../../context/CartContext";
-import { Typography } from "../../components";
+import { Button, Modal, Reservation, Typography } from "../../components";
 import { Bill, Payment } from "../../Components/Pages/Cart";
+import { PDFDownloadLink, PDFViewer } from "@react-pdf/renderer";
 
 export const Cart = () => {
   const { cart } = useContext(CartContext);
   const { flight, accomodation } = cart;
-  const paymentRef = useRef(null);
+  const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
+  const [isDownloadButtonEnabled, setIsDownloadButtonEnabled] = useState(false);
+  const [formData, setFormData] = useState({
+    fullname: "",
+    email: "",
+    card: "",
+    expirationDate: "",
+    cvv: "",
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { fullname, email, card, expirationDate, cvv } = formData;
+    const isValidForm =
+      fullname.length &&
+      email.length &&
+      card.length &&
+      expirationDate.length &&
+      cvv.length;
+
+    if (isValidForm === 0) {
+      alert("Please fill all the fields");
+      return;
+    } else {
+      alert(
+        "Payment successfull, you can download a PDF with the booking details"
+      );
+      setIsDownloadButtonEnabled(true);
+    }
+  };
+
+  const handleChangeFormData = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   useEffect(() => {
     window.scrollTo({ top: 0 });
@@ -27,7 +61,7 @@ export const Cart = () => {
   return (
     <div className="mt-24">
       <div>
-        <Bill paymentRef={paymentRef} />
+        <Bill openModal={() => setIsPaymentModalOpen(true)} />
       </div>
       {city && (
         <div className="flex flex-col p-8">
@@ -71,9 +105,31 @@ export const Cart = () => {
           </div>
         </div>
       )}
-      <div>
-        <Payment paymentRef={paymentRef} />
-      </div>
+
+      {isPaymentModalOpen && (
+        <Modal closeModal={() => setIsPaymentModalOpen(false)}>
+          <Payment
+            handleChangeFormData={handleChangeFormData}
+            formData={formData}
+            handleSubmit={handleSubmit}
+            isDownloadButtonEnabled={isDownloadButtonEnabled}
+          />
+
+          <div
+            className={`${!isDownloadButtonEnabled && "pointer-events-none"}`}
+          >
+            <PDFDownloadLink
+              document={<Reservation cart={cart} />}
+              fileName="reservation.pdf"
+            >
+              <Button
+                text="Download reservation in PDF"
+                disabled={!isDownloadButtonEnabled}
+              />
+            </PDFDownloadLink>
+          </div>
+        </Modal>
+      )}
     </div>
   );
 };

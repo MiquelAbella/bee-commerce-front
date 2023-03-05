@@ -3,7 +3,7 @@ import CartContext from "../../../../context/CartContext";
 import { calculateDays } from "../../../../utils/calculateDays";
 import { Button, Typography } from "../../../index";
 
-export const Bill = ({paymentRef}) => {
+export const Bill = ({openModal}) => {
   const { cart } = useContext(CartContext);
   const { flight, accomodation: hotel } = cart;
 
@@ -12,14 +12,6 @@ export const Bill = ({paymentRef}) => {
     : 0;
 
   const flightPrice = flight.price ? flight.price : 0;
-
-  const scrollToPayment = () =>{
-    window.scrollTo({
-        top: paymentRef.current.offsetTop,
-        left: 0,
-        behavior: "smooth",
-      });
-  }
 
   return (
     <div className="flex flex-col items-center">
@@ -70,7 +62,7 @@ export const Bill = ({paymentRef}) => {
                 <Typography text={`Total: ${hotelPrice + flightPrice} €`} />
               </div>
               <div className="mt-4">
-              <Button text="Payment" onClick={scrollToPayment}/>
+              <Button text="Payment" onClick={openModal}/>
               </div>
             </div>
           ) : (
