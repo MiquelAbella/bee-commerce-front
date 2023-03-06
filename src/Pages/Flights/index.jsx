@@ -14,7 +14,7 @@ export const Flights = () => {
   const { data, isLoading, error } = useFetch("http://localhost:3000/cities");
 
   useEffect(() => {
-    window.scrollTo({ top: 0});
+    window.scrollTo({ top: 0 });
   }, []);
 
   const [formData, setFormData] = useState({
@@ -27,6 +27,7 @@ export const Flights = () => {
   });
 
   useEffect(() => {
+    if (error) return;
     setAllCities(data);
   }, [data]);
 

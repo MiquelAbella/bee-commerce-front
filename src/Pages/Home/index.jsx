@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useFetch } from "../../hooks/useFetch";
 
 import {
@@ -13,7 +13,7 @@ import { sortCities } from "../../utils/sortCities";
 
 export const Home = () => {
   const [allCities, setAllCities] = useState([]);
-  const { data, isLoading, error } = useFetch("http://localhost:3000/cities");
+  const { data } = useFetch("http://localhost:3000/cities");
 
   useEffect(() => {
     window.scrollTo({ top: 0 });
