@@ -45,7 +45,7 @@ export const Reservation = ({ cart }) => {
               <Text>Start date: {flight.startDate}</Text>
               <Text>End date: {flight.endDate}</Text>
               <Text>Passengers: {flight.passengers}</Text>
-              <Text>Price: {flight.price} €</Text>
+              <Text>Price: {flight.price * flight.passengers} €</Text>
             </View>
           </View>
         )}

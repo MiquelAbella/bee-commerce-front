@@ -21,7 +21,7 @@ export const Modal = ({
     }
   };
 
-  let finalClassName = `bg-white p-6 w-full overflow-auto flex flex-col items-center justify-around rounded ${height} ${modalSize()}`;
+  let finalClassName = `bg-white p-6 w-full overflow-auto flex flex-col items-center justify-around rounded ${modalSize()}`;
 
   const handleCloseModal = (e) => {
     if (e.currentTarget !== e.target) return;

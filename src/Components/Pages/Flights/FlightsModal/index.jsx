@@ -12,7 +12,8 @@ export const FlightsModal = ({ closeModal }) => {
 
   return (
     <Modal closeModal={closeModal} size="sm">
-      <div className="h-full w-full p-12 flex flex-col items-center justify-center gap-6">
+       <div className="h-full w-full p-6 flex flex-col items-center justify-center gap-6">
+        <div className="flex flex-col gap-4">
         <Typography text="Flight booked" type="big" />
         <Typography text={`Origin: ${origin}`} />
         <Typography text={`Destination: ${destination}`} />
@@ -20,7 +21,7 @@ export const FlightsModal = ({ closeModal }) => {
         <Typography text={`End date: ${endDate}`} />
         <Typography text={`Passengers: ${passengers}`} />
         <Typography text={`Price ${price} €`} />
-        <div className="flex gap-6 md:gap-12">
+         <div className="flex flex-wrap gap-4 md:gap-6">
           <Button color="danger" text="Cancel" onClick={() => closeModal()} />
           <Link to="/hotels">
             <Button text="Acommodation" color="secondary" />
@@ -28,6 +29,7 @@ export const FlightsModal = ({ closeModal }) => {
           <Link to="/cart">
             <Button text="Cart" />
           </Link>
+        </div>
         </div>
       </div>
     </Modal>

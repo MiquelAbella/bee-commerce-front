@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import Swal from "sweetalert2";
 import CartContext from "../../../../context/CartContext";
 import { Button, Typography } from "../../../index";
 
@@ -20,7 +21,11 @@ export const HotelCard = ({
         left: 0,
         behavior: "smooth",
       });
-      alert("Please, fill all the form fields");
+      Swal.fire({
+        title: "Please, fill the form",
+        icon: "info",
+        confirmButtonText: "Proceed",
+      });
       return;
     }
     bookHotel({

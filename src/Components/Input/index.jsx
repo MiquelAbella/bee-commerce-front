@@ -7,10 +7,13 @@ export const Input = ({
   labelText,
   labelColor,
   type,
+  inputMode,
   placeholder,
   value,
   onChange,
   outlined = false,
+  pattern,
+  color,
 }) => {
   return (
     <div className="w-full">
@@ -22,12 +25,14 @@ export const Input = ({
         min={1}
         value={value}
         placeholder={placeholder}
-        className={`w-full p-2 rounded-md ${
+        className={`w-full ${color} p-2 rounded-md ${
           outlined ? "border border-gray-400" : "border-none"
         } outline-none`}
         id={label}
         type={type}
         onChange={onChange}
+        inputMode={inputMode}
+        pattern={pattern}
       />
     </div>
   );

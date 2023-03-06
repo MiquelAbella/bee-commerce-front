@@ -1,21 +1,42 @@
+// export const initialState = {
+//   flight: {
+//     origin: "",
+//     destination: "",
+//     startDate: "",
+//     endDate: "",
+//     price: 0,
+//     passengers: 1,
+//     country: "",
+//   },
+//   accomodation: {
+//     destination: "",
+//     startDate: "",
+//     endDate: "",
+//     people: 1,
+//     price: 0,
+//     name: "",
+//     country: "",
+//   },
+// };
+
 export const initialState = {
   flight: {
     origin: "Andorra la Vella",
-    destination: "Algiers",
-    startDate: "2023-03-11",
-    endDate: "2023-03-18",
-    price: 520,
-    passengers: 4,
-    country: "Algeria",
+    destination: "Tirana",
+    startDate: "2023-03-09",
+    endDate: "2023-03-10",
+    price: 302,
+    passengers: 1,
+    country: "Albania",
   },
   accomodation: {
-    destination: "Algiers",
-    startDate: "2023-03-11",
-    endDate: "2023-03-18",
-    people: 4,
-    price: 23,
-    name: "Wilderness Vanguard",
-    country: "Algeria",
+    destination: "Tirana",
+    startDate: "2023-03-09",
+    endDate: "2023-03-10",
+    people: 1,
+    price: 43,
+    name: "Journey Nirvana",
+    country: "Albania",
   },
 };
 

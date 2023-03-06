@@ -3,6 +3,7 @@ import CartContext from "../../context/CartContext";
 import { Button, Modal, Reservation, Typography } from "../../components";
 import { Bill, Payment } from "../../Components/Pages/Cart";
 import { PDFDownloadLink, PDFViewer } from "@react-pdf/renderer";
+import Swal from "sweetalert2";
 
 export const Cart = () => {
   const { cart } = useContext(CartContext);
@@ -16,7 +17,7 @@ export const Cart = () => {
     expirationDate: "",
     cvv: "",
   });
-
+  console.log(JSON.stringify(cart));
   const handleSubmit = (e) => {
     e.preventDefault();
     const { fullname, email, card, expirationDate, cvv } = formData;
@@ -28,11 +29,17 @@ export const Cart = () => {
       cvv.length;
 
     if (isValidForm === 0) {
-      alert("Please fill all the fields");
+      Swal.fire({
+        title: "Please, fill the form",
+        icon: "info",
+        confirmButtonText: "Proceed",
+      });
       return;
     } else {
-      alert(
-        "Payment successfull, you can download a PDF with the booking details"
+      Swal.fire(
+        "Payment successfull, you can download a PDF with the booking details",
+        "Here you have a cupon to get a discount in amazen.dtpf.es : M2a5G7a9L2u4F1M0l2A",
+        "success"
       );
       setIsDownloadButtonEnabled(true);
     }
@@ -107,7 +114,7 @@ export const Cart = () => {
       )}
 
       {isPaymentModalOpen && (
-        <Modal closeModal={() => setIsPaymentModalOpen(false)}>
+        <Modal closeModal={() => setIsPaymentModalOpen(false)} height="h-auto">
           <Payment
             handleChangeFormData={handleChangeFormData}
             formData={formData}

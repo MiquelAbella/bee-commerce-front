@@ -1,6 +1,7 @@
 import { Button } from "../../../Button";
 import { Input } from "../../../Input";
 import { Typography } from "../../../Typography";
+import Swal from "sweetalert2";
 
 export const Form = ({
   setFormData,
@@ -20,7 +21,11 @@ export const Form = ({
 
   const handleScrollToHotels = () => {
     if (!formData.destination.length) {
-      alert("Please, select a destination");
+      Swal.fire({
+        title: "Select a destination",
+        icon: "info",
+        confirmButtonText: "Proceed",
+      });
       return;
     }
     setHotelsInCity(
@@ -49,7 +54,7 @@ export const Form = ({
               onChange={handleChangeFormData}
             >
               <option value="">Select destination</option>
-              {cities.map((city, i) => {
+              {cities && cities.map((city, i) => {
                 return (
                   <option key={`${city.capital}-${i}`} value={city.capital}>
                     {city.country} - {city.capital}
