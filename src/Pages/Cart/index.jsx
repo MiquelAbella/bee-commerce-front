@@ -38,7 +38,7 @@ export const Cart = () => {
     } else {
       Swal.fire(
         "Payment successfull, you can download a PDF with the booking details",
-        "Here you have a cupon to get a discount in amazen.dtpf.es : M2a5G7a9L2u4F1M0l2A",
+        "Here you have a cupon to get a discount in amazen.dtpf.es : BEETRIPS20%DISCOUNT",
         "success"
       );
       setIsDownloadButtonEnabled(true);

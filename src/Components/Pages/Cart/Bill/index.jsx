@@ -22,7 +22,7 @@ export const Bill = ({ openModal }) => {
       setTotalPrice(totalPrice - (10 * totalPrice) / 100);
     } else {
       setInputColor("text-red-500");
-      setTotalPrice(flightPrice + hotelPrice)
+      setTotalPrice(flightPrice + hotelPrice);
     }
   };
 
@@ -76,7 +76,9 @@ export const Bill = ({ openModal }) => {
               </div>
             </div>
           ) : (
-            <Typography text="Nothing added to cart" type="big" />
+            <div className="m-8">
+              <Typography text="Nothing added to cart" />
+            </div>
           )}
           <div className="mt-4 absolute right-2 bottom-2 flex gap-2">
             <Input
