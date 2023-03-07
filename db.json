@@ -1,4 +1,13 @@
 {
+  "users": [
+    {
+      "email": "m@m.com",
+      "password": "m",
+      "fullname": "Miquel Abella",
+      "history": [],
+      "id": 1
+    }
+  ],
   "cities": [
     {
       "country": "Afghanistan",
@@ -288,7 +297,6 @@
       "latitude": 18.4861,
       "longitude": -69.9312
     },
-
     {
       "country": "East Timor",
       "capital": "Dili",
@@ -361,7 +369,6 @@
       "latitude": 48.8566,
       "longitude": 2.3522
     },
-
     {
       "country": "Gabon",
       "capital": "Libreville",
@@ -428,7 +435,6 @@
       "latitude": 6.8013,
       "longitude": -58.155
     },
-
     {
       "country": "Haiti",
       "capital": "Port-au-Prince",
@@ -447,7 +453,6 @@
       "latitude": 47.4979,
       "longitude": 19.0402
     },
-
     {
       "country": "Iceland",
       "capital": "Reykjavik",
@@ -496,14 +501,12 @@
       "latitude": 41.9028,
       "longitude": 12.4964
     },
-
     {
       "country": "Japan",
       "capital": "Tokyo",
       "latitude": 35.6895,
       "longitude": 139.6917
     },
-
     {
       "country": "Laos",
       "capital": "Vientiane",
@@ -786,7 +789,6 @@
       "latitude": 25.2854,
       "longitude": 51.531
     },
-
     {
       "country": "Russia",
       "capital": "Moscow",
@@ -1015,7 +1017,6 @@
       "latitude": -8.52,
       "longitude": 179.19
     },
-
     {
       "country": "Vanuatu",
       "capital": "Port Vila",
@@ -1040,7 +1041,6 @@
       "latitude": 21.03,
       "longitude": 105.85
     },
-
     {
       "country": "Vanuatu",
       "capital": "Port Vila",
@@ -1065,7 +1065,6 @@
       "latitude": 21.03,
       "longitude": 105.85
     },
-
     {
       "country": "Yemen",
       "capital": "Sana'a",

@@ -28,11 +28,11 @@ export const useFetch = (url) => {
             data,
           });
         }
-      } catch (error) {
+      } catch (err) {
         setState({
           data: null,
           isLoading: false,
-          error: "No se pudo cargar la info",
+          error: "Ups... something happened",
         });
       }
     };

@@ -70,9 +70,6 @@ export const Cart = () => {
       <div>
         <Bill openModal={() => setIsPaymentModalOpen(true)} />
       </div>
-      {city && (
-       <PartnersSection city={city} country={country} />
-      )}
 
       {isPaymentModalOpen && (
         <Modal closeModal={() => setIsPaymentModalOpen(false)} height="h-auto">

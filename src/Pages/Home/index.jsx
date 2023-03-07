@@ -7,7 +7,7 @@ import {
   HomeModal,
   OffersSection,
 } from "../../Components/Pages";
-import { Typography } from "../../Components";
+import { Button, Typography } from "../../Components";
 
 import { sortCities } from "../../utils/sortCities";
 

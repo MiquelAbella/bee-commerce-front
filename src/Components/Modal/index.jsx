@@ -31,7 +31,7 @@ export const Modal = ({
   return (
     <div
       onClickCapture={handleCloseModal}
-      className="flex items-center justify-center h-screen w-screen bg-black/50 fixed top-0 z-10 p-4"
+      className="flex items-center justify-center h-screen w-screen bg-black/50 fixed top-0 z-[1000] p-4"
     >
       <div className={finalClassName}>{children}</div>
     </div>
