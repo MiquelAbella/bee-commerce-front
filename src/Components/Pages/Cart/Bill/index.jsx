@@ -3,18 +3,17 @@ import CartContext from "../../../../context/CartContext";
 import { calculateDays } from "../../../../utils/calculateDays";
 import { Button, Input, Typography } from "../../../index";
 
-export const Bill = ({ openModal }) => {
+export const Bill = ({
+  openModal,
+  totalPrice,
+  hotelPrice,
+  setTotalPrice,
+  flightPrice,
+  total,
+}) => {
   const { cart } = useContext(CartContext);
   const { flight, accomodation: hotel } = cart;
   const [inputColor, setInputColor] = useState("text-red-500");
-
-  const hotelPrice = hotel.price
-    ? calculateDays(hotel.startDate, hotel.endDate) * hotel.people * hotel.price
-    : 0;
-
-  const flightPrice = flight.price ? flight.price : 0;
-
-  const [totalPrice, setTotalPrice] = useState(hotelPrice + flightPrice);
 
   const handleCheckCupon = (e) => {
     if (e.target.value === "M2a5G7a9L2u4F1M0l2A") {
@@ -22,7 +21,7 @@ export const Bill = ({ openModal }) => {
       setTotalPrice(totalPrice - (10 * totalPrice) / 100);
     } else {
       setInputColor("text-red-500");
-      setTotalPrice(flightPrice + hotelPrice);
+      setTotalPrice(total);
     }
   };
 

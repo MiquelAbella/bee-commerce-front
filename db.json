@@ -6,6 +6,60 @@
       "fullname": "Miquel Abella",
       "history": [],
       "id": 1
+    },
+    {
+      "email": "mabell39@xtec.cat",
+      "password": "a",
+      "fullname": "asdf",
+      "history": {
+        "flights": [],
+        "hotels": []
+      },
+      "id": 2
+    },
+    {
+      "email": "abell39@xtec.cat",
+      "password": "a",
+      "fullname": "a",
+      "history": {
+        "flights": [],
+        "hotels": []
+      },
+      "registrationDate": 1678210383389,
+      "id": 3
+    },
+    {
+      "email": "bell39@xtec.cat",
+      "password": "a",
+      "fullname": "a",
+      "history": {
+        "flights": [],
+        "hotels": []
+      },
+      "registrationDate": 1678210550540,
+      "id": 4
+    },
+    {
+      "email": "i@i.com",
+      "password": "i",
+      "fullname": "df",
+      "history": {
+        "flights": [],
+        "hotels": []
+      },
+      "registrationDate": 1678210610895,
+      "id": 5
+    },
+    {
+      "email": "d@d.com",
+      "password": "m",
+      "fullname": "df",
+      "history": {
+        "flights": [],
+        "hotels": []
+      },
+      "registrationDate": 1678213428383,
+      "id": 6
     }
   ],
   "cities": [

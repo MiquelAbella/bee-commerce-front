@@ -24,7 +24,7 @@ export const Layout = ({ children }) => {
     password2: "",
   });
 
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
 
   const handleChangeLoginFormData = (e) => {
     setLoginFormData({ ...loginFormData, [e.target.name]: e.target.value });
@@ -87,16 +87,25 @@ export const Layout = ({ children }) => {
         email,
         password: password1,
         fullname,
-        history: [],
+        history: { flights: [], hotels: [] },
+        registrationDate: Date.now(),
       }),
       headers: {
         "Content-Type": "application/json",
       },
     });
     if (res.ok) {
-      loginUser(registerFormData);
+        console.log(res)
+      loginUser({
+        email,
+        password: password1,
+        fullname,
+        history: { flights: [], hotels: [] },
+        registrationDate: Date.now(),
+      });
       Swal.fire({
-        title: "Successfuly registered",
+        title:
+          "Successfuly registered, you have just won a 5% discount for 24h",
         icon: "success",
         confirmButtonText: "Proceed",
       });
@@ -125,21 +134,25 @@ export const Layout = ({ children }) => {
       {isLoginModalOpen && (
         <Modal closeModal={() => setIsLoginModalOpen(false)} height="h-auto">
           {!isLogin ? (
-            <LoginModal
-              loginFormData={loginFormData}
-              handleChangeLoginFormData={handleChangeLoginFormData}
-              handleSubmitLogin={handleSubmitLogin}
-              setIsLogin={setIsLogin}
-              isLogin={isLogin}
-            />
+            <div className="w-full h-full p-4 md:p-4 flex flex-col items-center justify-center">
+              <LoginModal
+                loginFormData={loginFormData}
+                handleChangeLoginFormData={handleChangeLoginFormData}
+                handleSubmitLogin={handleSubmitLogin}
+                setIsLogin={setIsLogin}
+                isLogin={isLogin}
+              />
+            </div>
           ) : (
-            <RegisterModal
-              registerFormData={registerFormData}
-              handleChangeRegisterFormData={handleChangeRegisterFormData}
-              handleSubmitRegister={handleSubmitRegister}
-              setIsLogin={setIsLogin}
-              isLogin={isLogin}
-            />
+            <div className="w-full h-full p-4 md:p-4 flex flex-col items-center justify-center">
+              <RegisterModal
+                registerFormData={registerFormData}
+                handleChangeRegisterFormData={handleChangeRegisterFormData}
+                handleSubmitRegister={handleSubmitRegister}
+                setIsLogin={setIsLogin}
+                isLogin={isLogin}
+              />
+            </div>
           )}
         </Modal>
       )}

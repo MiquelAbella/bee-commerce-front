@@ -12,7 +12,7 @@ export const NavBar = () => {
         <Typography text="FLIGHTS" isLink />
       </Link>
       <Link to="hotels">
-        <Typography text="ACCOMODATIONS" isLink />
+        <Typography text="HOTELS" isLink />
       </Link>
       <Link to="cart">
         <Typography text="CART" isLink />
