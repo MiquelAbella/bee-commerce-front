@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export const Reservation = ({ cart }) => {
+export const Reservation = ({ cart, totalPrice }) => {
   const { flight, accomodation } = cart;
   const numberOfDays = calculateDays(
     accomodation.startDate,
@@ -59,10 +59,17 @@ export const Reservation = ({ cart }) => {
               <Text>Start date: {accomodation.startDate}</Text>
               <Text>End date: {accomodation.endDate}</Text>
               <Text>Guests: {accomodation.people}</Text>
-              <Text>Price: {accomodation.price * numberOfDays * accomodation.people} €</Text>
+              <Text>
+                Price: {accomodation.price * numberOfDays * accomodation.people}{" "}
+                €
+              </Text>
             </View>
           </View>
         )}
+        ´
+        <View style={styles.container}>
+          <Text>Total: {totalPrice}€</Text>
+        </View>
       </Page>
     </Document>
   );

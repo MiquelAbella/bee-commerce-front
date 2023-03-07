@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import CartContext from "../../../../context/CartContext";
-import { calculateDays } from "../../../../utils/calculateDays";
 import { Button, Input, Typography } from "../../../index";
 
 export const Bill = ({

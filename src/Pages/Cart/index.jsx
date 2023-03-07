@@ -114,7 +114,7 @@ export const Cart = () => {
             className={`${!isDownloadButtonEnabled && "pointer-events-none"}`}
           >
             <PDFDownloadLink
-              document={<Reservation cart={cart} />}
+              document={<Reservation cart={cart} totalPrice={totalPrice}/>}
               fileName="reservation.pdf"
             >
               <Button
