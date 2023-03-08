@@ -37,7 +37,9 @@ export const Cart = () => {
 
   const [totalPrice, setTotalPrice] = useState(total);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
+    const publishableKey =
+      "pk_test_51KnRFlBXC5oZe32SfBE13xG52BYqwVNyvdFpj1KAkFL5eimkDNNJarbSUekrZTpkWBDQKHZmvy0GDx937smFwmC300CI5Td52Y";
     e.preventDefault();
     const { fullname, email, card, expirationDate, cvv } = formData;
     const isValidForm =
@@ -55,12 +57,22 @@ export const Cart = () => {
       });
       return;
     } else {
-      Swal.fire(
-        "Payment successfull, you can download a PDF with the booking details",
-        "Here you have a cupon to get a discount in amazen.dtpf.es : BEETRIPS20%DISCOUNT",
-        "success"
-      );
-      setIsDownloadButtonEnabled(true);
+      //   setIsDownloadButtonEnabled(true);
+      const res = await fetch("http://localhost:4242/create-payment-intent", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await res.json();
+      if (data.ok) {
+        Swal.fire(
+          "Payment successfull, you can download a PDF with the booking details",
+          "Here you have a cupon to get a discount in amazen.dtpf.es : BEETRIPS20%DISCOUNT",
+          "success"
+        );
+      }
+      console.log(data);
     }
   };
 
@@ -114,7 +126,7 @@ export const Cart = () => {
             className={`${!isDownloadButtonEnabled && "pointer-events-none"}`}
           >
             <PDFDownloadLink
-              document={<Reservation cart={cart} totalPrice={totalPrice}/>}
+              document={<Reservation cart={cart} totalPrice={totalPrice} />}
               fileName="reservation.pdf"
             >
               <Button

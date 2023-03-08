@@ -78,15 +78,18 @@ export const Bill = ({
               <Typography text="Nothing added to cart" />
             </div>
           )}
-          <div className="mt-4 absolute right-2 bottom-2 flex gap-2">
-            <Input
-              type="text"
-              placeholder="Do you have a cupon?"
-              color={inputColor}
-              onChange={handleCheckCupon}
-            />
-            <Button text="Payment" onClick={openModal} />
-          </div>
+          {hotel.destination ||
+            flight.destination ? (
+              <div className="mt-4 absolute right-2 bottom-2 flex gap-2">
+                <Input
+                  type="text"
+                  placeholder="Do you have a cupon?"
+                  color={inputColor}
+                  onChange={handleCheckCupon}
+                />
+                <Button text="Payment" onClick={openModal} />
+              </div>
+            ): null}
         </div>
       </div>
     </div>

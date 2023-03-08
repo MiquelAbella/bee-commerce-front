@@ -3,6 +3,7 @@ import { Input } from "../../../Input";
 
 export const Payment = ({ handleChangeFormData, formData, handleSubmit, isDownloadButtonEnabled }) => {
   const { fullname, email, card, expirationDate, cvv } = formData;
+  
   return (
     <div className=" w-full p-6 flex items-center justify-center flex-1 overflow-auto">
       <form className="grid gap-4 grid-cols-3 rounded-lg" onSubmit={handleSubmit}>
