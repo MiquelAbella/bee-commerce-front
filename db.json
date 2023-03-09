@@ -1,5 +1,28 @@
 {
-  "users": [],
+  "users": [
+    {
+      "email": "pizzi@pizzi.com",
+      "password": "123",
+      "fullname": "Pizzi",
+      "history": {
+        "flights": [],
+        "hotels": []
+      },
+      "registrationDate": 1678359000210,
+      "id": 1
+    },
+    {
+      "email": "m@m.com",
+      "password": "m",
+      "fullname": "m",
+      "history": {
+        "flights": [],
+        "hotels": []
+      },
+      "registrationDate": 1678360619554,
+      "id": 2
+    }
+  ],
   "cities": [
     {
       "country": "Afghanistan",

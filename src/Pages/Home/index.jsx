@@ -7,13 +7,14 @@ import {
   HomeModal,
   OffersSection,
 } from "../../Components/Pages";
-import { Button, Typography } from "../../Components";
+import { Typography } from "../../Components";
 
 import { sortCities } from "../../utils/sortCities";
 
 export const Home = () => {
   const [allCities, setAllCities] = useState([]);
   const { data } = useFetch("http://localhost:3000/cities");
+  const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false);
 
   useEffect(() => {
     window.scrollTo({ top: 0 });
@@ -32,8 +33,6 @@ export const Home = () => {
       ? JSON.parse(localStorage.getItem("nearestCity"))
       : null
   );
-
-  const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false);
 
   const getNearestCity = () => {
     const nearest = sortCities(allCities, location);
