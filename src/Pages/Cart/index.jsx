@@ -3,7 +3,6 @@ import CartContext from "../../context/CartContext";
 import { Button, Modal, Reservation } from "../../components";
 import { Bill, Payment, PartnersSection } from "../../Components/Pages/Cart";
 import { PDFDownloadLink } from "@react-pdf/renderer";
-import Swal from "sweetalert2";
 import UserContext from "../../context/UserContext";
 import { calculateDays } from "../../utils/calculateDays";
 
@@ -15,13 +14,6 @@ export const Cart = () => {
 
   const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
   const [isDownloadButtonEnabled, setIsDownloadButtonEnabled] = useState(false);
-  const [formData, setFormData] = useState({
-    fullname: "",
-    email: "",
-    card: "",
-    expirationDate: "",
-    cvv: "",
-  });
 
   const ONE_DAY = 86400000;
   const isCouponValid = Date.now() < user?.registrationDate + ONE_DAY;
@@ -36,49 +28,6 @@ export const Cart = () => {
     : hotelPrice + flightPrice;
 
   const [totalPrice, setTotalPrice] = useState(total);
-
-  const handleSubmit = async (e) => {
-    const publishableKey =
-      "pk_test_51KnRFlBXC5oZe32SfBE13xG52BYqwVNyvdFpj1KAkFL5eimkDNNJarbSUekrZTpkWBDQKHZmvy0GDx937smFwmC300CI5Td52Y";
-    e.preventDefault();
-    const { fullname, email, card, expirationDate, cvv } = formData;
-    const isValidForm =
-      fullname.length &&
-      email.length &&
-      card.length &&
-      expirationDate.length &&
-      cvv.length;
-
-    if (isValidForm === 0) {
-      Swal.fire({
-        title: "Please, fill the form",
-        icon: "info",
-        confirmButtonText: "Proceed",
-      });
-      return;
-    } else {
-      //   setIsDownloadButtonEnabled(true);
-      const res = await fetch("http://localhost:4242/create-payment-intent", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      const data = await res.json();
-      if (data.ok) {
-        Swal.fire(
-          "Payment successfull, you can download a PDF with the booking details",
-          "Here you have a cupon to get a discount in amazen.dtpf.es : BEETRIPS20%DISCOUNT",
-          "success"
-        );
-      }
-      console.log(data);
-    }
-  };
-
-  const handleChangeFormData = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
 
   useEffect(() => {
     window.scrollTo({ top: 0 });
@@ -116,10 +65,9 @@ export const Cart = () => {
       {isPaymentModalOpen && (
         <Modal closeModal={() => setIsPaymentModalOpen(false)} height="h-auto">
           <Payment
-            handleChangeFormData={handleChangeFormData}
-            formData={formData}
-            handleSubmit={handleSubmit}
             isDownloadButtonEnabled={isDownloadButtonEnabled}
+            totalPrice={totalPrice}
+            setIsDownloadButtonEnabled={setIsDownloadButtonEnabled}
           />
 
           <div

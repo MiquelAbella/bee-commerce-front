@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@react-pdf/renderer": "^3.1.6",
+    "@stripe/react-stripe-js": "^1.16.5",
+    "@stripe/stripe-js": "^1.48.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-map-gl": "^7.0.21",

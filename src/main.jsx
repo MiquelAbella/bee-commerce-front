@@ -6,11 +6,11 @@ import { CartProvider } from "./context/CartContext";
 import { UserProvider } from "./context/UserContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  //   <React.StrictMode>
+
   <UserProvider>
     <CartProvider>
       <Router></Router>
     </CartProvider>
   </UserProvider>
-  //   </React.StrictMode>
+
 );
