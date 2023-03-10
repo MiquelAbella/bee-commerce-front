@@ -26,6 +26,167 @@
               "country": "Albania"
             }
           },
+          "date": "08/3/2023"
+        },
+        {
+          "cart": {
+            "flight": {
+              "origin": "Andorra la Vella",
+              "destination": "Tirana",
+              "startDate": "2023-03-09",
+              "endDate": "2023-03-10",
+              "price": 302,
+              "passengers": 1,
+              "country": "Albania"
+            },
+            "accomodation": {
+              "destination": "Tirana",
+              "startDate": "2023-03-09",
+              "endDate": "2023-03-10",
+              "people": 1,
+              "price": 43,
+              "name": "Journey Nirvana",
+              "country": "Albania"
+            }
+          },
+          "date": "08/3/2023"
+        },
+        {
+          "cart": {
+            "flight": {
+              "origin": "Andorra la Vella",
+              "destination": "Tirana",
+              "startDate": "2023-03-09",
+              "endDate": "2023-03-10",
+              "price": 302,
+              "passengers": 1,
+              "country": "Albania"
+            },
+            "accomodation": {
+              "destination": "Tirana",
+              "startDate": "2023-03-09",
+              "endDate": "2023-03-10",
+              "people": 1,
+              "price": 43,
+              "name": "Journey Nirvana",
+              "country": "Albania"
+            }
+          },
+          "date": "08/3/2023"
+        },
+        {
+          "cart": {
+            "flight": {
+              "origin": "Andorra la Vella",
+              "destination": "Tirana",
+              "startDate": "2023-03-09",
+              "endDate": "2023-03-10",
+              "price": 302,
+              "passengers": 1,
+              "country": "Albania"
+            },
+            "accomodation": {
+              "destination": "Tirana",
+              "startDate": "2023-03-09",
+              "endDate": "2023-03-10",
+              "people": 1,
+              "price": 43,
+              "name": "Journey Nirvana",
+              "country": "Albania"
+            }
+          },
+          "date": "08/3/2023"
+        },
+        {
+          "cart": {
+            "flight": {
+              "origin": "Andorra la Vella",
+              "destination": "Tirana",
+              "startDate": "2023-03-09",
+              "endDate": "2023-03-10",
+              "price": 302,
+              "passengers": 1,
+              "country": "Albania"
+            },
+            "accomodation": {
+              "destination": "Tirana",
+              "startDate": "2023-03-09",
+              "endDate": "2023-03-10",
+              "people": 1,
+              "price": 43,
+              "name": "Journey Nirvana",
+              "country": "Albania"
+            }
+          },
+          "date": "09/3/2023"
+        },
+        {
+          "cart": {
+            "flight": {
+              "origin": "Andorra la Vella",
+              "destination": "Tirana",
+              "startDate": "2023-03-09",
+              "endDate": "2023-03-10",
+              "price": 302,
+              "passengers": 1,
+              "country": "Albania"
+            },
+            "accomodation": {
+              "destination": "Tirana",
+              "startDate": "2023-03-09",
+              "endDate": "2023-03-10",
+              "people": 1,
+              "price": 43,
+              "name": "Journey Nirvana",
+              "country": "Albania"
+            }
+          },
+          "date": "09/3/2023"
+        },
+        {
+          "cart": {
+            "flight": {
+              "origin": "Andorra la Vella",
+              "destination": "Tirana",
+              "startDate": "2023-03-09",
+              "endDate": "2023-03-10",
+              "price": 302,
+              "passengers": 1,
+              "country": "Albania"
+            },
+            "accomodation": {
+              "destination": "Tirana",
+              "startDate": "2023-03-09",
+              "endDate": "2023-03-10",
+              "people": 1,
+              "price": 43,
+              "name": "Journey Nirvana",
+              "country": "Albania"
+            }
+          },
+          "date": "10/3/2023"
+        },
+        {
+          "cart": {
+            "flight": {
+              "origin": "Andorra la Vella",
+              "destination": "Tirana",
+              "startDate": "2023-03-09",
+              "endDate": "2023-03-10",
+              "price": 302,
+              "passengers": 1,
+              "country": "Albania"
+            },
+            "accomodation": {
+              "destination": "Tirana",
+              "startDate": "2023-03-09",
+              "endDate": "2023-03-10",
+              "people": 1,
+              "price": 43,
+              "name": "Journey Nirvana",
+              "country": "Albania"
+            }
+          },
           "date": "10/3/2023"
         },
         {
