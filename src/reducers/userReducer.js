@@ -6,6 +6,8 @@ export const userReducer = (state = initialState, action) => {
       return action.payload;
     case "LOGOUT":
       return null;
+    case "ADD_HISTORY":
+      return {...state, history: [...state.history, action.payload]};
     default:
       return state;
   }

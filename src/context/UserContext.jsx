@@ -10,9 +10,14 @@ export const UserProvider = ({ children }) => {
   const loginUser = (user) => {
     dispatch({ type: types.loginUser, payload: { ...user } });
   };
+
   const logout = () => {
     dispatch({ type: types.logout });
   };
+  
+  const addToHistory = (product) => {
+    dispatch({ type: types.addToHistory, payload: product })
+  }
 
   return (
     <UserContext.Provider
@@ -20,6 +25,7 @@ export const UserProvider = ({ children }) => {
         user: state,
         loginUser,
         logout,
+        addToHistory
       }}
     >
       {children}

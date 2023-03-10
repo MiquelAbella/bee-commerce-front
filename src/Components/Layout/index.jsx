@@ -87,7 +87,7 @@ export const Layout = ({ children }) => {
         email,
         password: password1,
         fullname,
-        history: { flights: [], hotels: [] },
+        history: [],
         registrationDate: Date.now(),
       }),
       headers: {

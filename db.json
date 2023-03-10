@@ -1,26 +1,82 @@
 {
   "users": [
     {
-      "email": "pizzi@pizzi.com",
-      "password": "123",
-      "fullname": "Pizzi",
-      "history": {
-        "flights": [],
-        "hotels": []
-      },
-      "registrationDate": 1678359000210,
-      "id": 1
-    },
-    {
       "email": "m@m.com",
       "password": "m",
-      "fullname": "m",
-      "history": {
-        "flights": [],
-        "hotels": []
-      },
-      "registrationDate": 1678360619554,
-      "id": 2
+      "fullname": "Miquel Abella",
+      "history": [
+        {
+          "cart": {
+            "flight": {
+              "origin": "Andorra la Vella",
+              "destination": "Tirana",
+              "startDate": "2023-03-09",
+              "endDate": "2023-03-10",
+              "price": 302,
+              "passengers": 1,
+              "country": "Albania"
+            },
+            "accomodation": {
+              "destination": "Tirana",
+              "startDate": "2023-03-09",
+              "endDate": "2023-03-10",
+              "people": 1,
+              "price": 43,
+              "name": "Journey Nirvana",
+              "country": "Albania"
+            }
+          },
+          "date": "10/3/2023"
+        },
+        {
+          "cart": {
+            "flight": {
+              "origin": "",
+              "destination": "",
+              "startDate": "",
+              "endDate": "",
+              "price": 0,
+              "passengers": 1,
+              "country": ""
+            },
+            "accomodation": {
+              "destination": "Saint John's",
+              "startDate": "2023-03-11",
+              "endDate": "2023-03-17",
+              "people": 4,
+              "price": 24,
+              "name": "Eclipse Regal",
+              "country": "Antigua and Barbuda"
+            }
+          },
+          "date": "10/3/2023"
+        },
+        {
+          "cart": {
+            "flight": {
+              "origin": "",
+              "destination": "",
+              "startDate": "",
+              "endDate": "",
+              "price": 0,
+              "passengers": 1,
+              "country": ""
+            },
+            "accomodation": {
+              "destination": "Luanda",
+              "startDate": "2023-03-18",
+              "endDate": "2023-03-31",
+              "people": 4,
+              "price": 43,
+              "name": "Ascend Azure",
+              "country": "Angola"
+            }
+          },
+          "date": "10/3/2023"
+        }
+      ],
+      "registrationDate": 1678441425149,
+      "id": 1
     }
   ],
   "cities": [

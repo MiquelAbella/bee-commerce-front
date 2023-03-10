@@ -4,4 +4,5 @@ export const types = {
 
   loginUser: "LOGIN_USER",
   logout: "LOGOUT",
+  addToHistory: "ADD_HISTORY"
 };

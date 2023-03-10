@@ -1,12 +1,10 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import { Typography } from "../Typography";
 
 import cart from "../../assets/icons/cart.png";
 import home from "../../assets/icons/home.png";
 import flights from "../../assets/icons/flights.png";
 import hotel from "../../assets/icons/hotel.png";
-import user from "../../assets/icons/user.png";
+import dashboard from "../../assets/icons/dashboard.png";
 
 export const NavBar = () => {
   return (
@@ -24,7 +22,7 @@ export const NavBar = () => {
         <img className="h-[30px]" src={cart} alt="nav-cart" />
       </Link>
       <Link to="dashboard">
-        <img className="h-[25px]" src={user} alt="nav-cart" />
+        <img className="h-[25px]" src={dashboard} alt="nav-cart" />
       </Link>
     </div>
   );

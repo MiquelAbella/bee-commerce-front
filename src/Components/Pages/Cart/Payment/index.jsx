@@ -8,7 +8,9 @@ import {
 } from "@stripe/react-stripe-js";
 import { Typography } from "../../../Typography";
 import Swal from "sweetalert2";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import UserContext from "../../../../context/UserContext";
+import CartContext from "../../../../context/CartContext";
 
 const stripePromise = loadStripe(
   "pk_test_51KnRFlBXC5oZe32SfBE13xG52BYqwVNyvdFpj1KAkFL5eimkDNNJarbSUekrZTpkWBDQKHZmvy0GDx937smFwmC300CI5Td52Y"
@@ -22,7 +24,9 @@ const CheckoutForm = ({
   const elements = useElements();
   const stripe = useStripe();
   const [isLoading, setisLoading] = useState(false);
-  
+  const { user, addToHistory } = useContext(UserContext);
+  const { cart } = useContext(CartContext);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -55,6 +59,24 @@ const CheckoutForm = ({
         );
         setIsDownloadButtonEnabled(true);
         setisLoading(false);
+        if (user) {
+          const { id } = user;
+          addToHistory({ cart, date: new Date().toLocaleDateString() });
+          const res = await fetch(`http://localhost:3000/users/${id}/`, {
+            method: "PUT",
+            body: JSON.stringify({
+              ...user,
+              history: [
+                ...user.history,
+                { cart, date: new Date().toLocaleDateString() },
+              ],
+            }),
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+          });
+        }
       }
     }
   };
