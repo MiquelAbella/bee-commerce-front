@@ -12,11 +12,11 @@ export const Dashboard = () => {
         <Typography text={`Hello ${user.fullname}`} type="big" />
         <Typography text="Here you can see all the reservations you made"/>
         <div className="flex flex-wrap gap-6 items-start justify-start w-full">
-          {user.history.map((purchase) => {
+          {user.history.map((purchase, i) => {
             const { date, cart } = purchase;
             const { accomodation, flight } = cart;
             return (
-              <div className="mt-6 border border-gray-300 p-6 shadow-lg">
+              <div key={`${date}-${i}`} className="mt-6 border border-gray-300 p-6 shadow-lg">
                 <Typography text={date} type="subtitle" />
                 <div className="flex flex-wrap items-center gap-12">
                   {accomodation.destination && (
