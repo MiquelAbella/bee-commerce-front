@@ -15,12 +15,17 @@ export const CartProvider = ({ children }) => {
     dispatch({ type: types.bookHotel, payload: { ...hotel } });
   };
 
+  const resetCart = () => {
+    dispatch({ type: types.reset, payload: initialState });
+  };
+
   return (
     <CartContext.Provider
       value={{
         cart: state,
         bookFlight,
         bookHotel,
+        resetCart
       }}
     >
       {children}

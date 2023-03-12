@@ -52,7 +52,8 @@ export const cartReducer = (state = initialState, action) => {
         ...state,
         flight: action.payload,
       };
-
+    case "RESET_CART":
+      return { ...action.payload };
     default:
       return state;
   }

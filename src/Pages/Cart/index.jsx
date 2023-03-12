@@ -5,10 +5,12 @@ import { Bill, Payment, PartnersSection } from "../../Components/Pages/Cart";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import UserContext from "../../context/UserContext";
 import { calculateDays } from "../../utils/calculateDays";
+import { useNavigate } from "react-router-dom";
 
 export const Cart = () => {
+  const navigate = useNavigate();
   const { user } = useContext(UserContext);
-  const { cart } = useContext(CartContext);
+  const { cart, resetCart } = useContext(CartContext);
 
   const { flight, accomodation: hotel } = cart;
 
@@ -45,6 +47,13 @@ export const Cart = () => {
     ? flight.country.toLowerCase()
     : null;
 
+  const handleResetCart = () => {
+    resetCart();
+    setIsPaymentModalOpen(false);
+    setIsDownloadButtonEnabled(false);
+    navigate("/")
+  };
+
   return (
     <div className="mt-24">
       <div>
@@ -69,19 +78,25 @@ export const Cart = () => {
             totalPrice={totalPrice}
             setIsDownloadButtonEnabled={setIsDownloadButtonEnabled}
           />
-
-          <div
-            className={`${!isDownloadButtonEnabled && "pointer-events-none"}`}
-          >
-            <PDFDownloadLink
-              document={<Reservation cart={cart} totalPrice={totalPrice} />}
-              fileName="reservation.pdf"
+          <div className="flex gap-3 flex-wrap">
+            <div
+              className={`${!isDownloadButtonEnabled && "pointer-events-none"}`}
             >
-              <Button
-                text="Download reservation in PDF"
-                disabled={!isDownloadButtonEnabled}
-              />
-            </PDFDownloadLink>
+              <PDFDownloadLink
+                document={<Reservation cart={cart} totalPrice={totalPrice} />}
+                fileName="reservation.pdf"
+              >
+                <Button
+                  text="Download reservation in PDF"
+                  disabled={!isDownloadButtonEnabled}
+                />
+              </PDFDownloadLink>
+            </div>
+            <Button
+              text="Reset cart and book again"
+              color="secondary"
+              onClick={handleResetCart}
+            />
           </div>
         </Modal>
       )}
