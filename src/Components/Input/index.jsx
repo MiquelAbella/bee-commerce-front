@@ -14,6 +14,8 @@ export const Input = ({
   outlined = false,
   pattern,
   color,
+  minValue,
+  maxValue
 }) => {
   return (
     <div className="w-full">
@@ -22,7 +24,8 @@ export const Input = ({
       </label>
       <input
         name={name}
-        min={1}
+        min={minValue ? minValue : "undefined"}
+        max={maxValue ? maxValue : "undefined"}
         value={value}
         placeholder={placeholder}
         className={`w-full ${color} p-2 rounded-md ${

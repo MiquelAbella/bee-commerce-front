@@ -54,13 +54,14 @@ export const Form = ({
               onChange={handleChangeFormData}
             >
               <option value="">Select destination</option>
-              {cities && cities.map((city, i) => {
-                return (
-                  <option key={`${city.capital}-${i}`} value={city.capital}>
-                    {city.country} - {city.capital}
-                  </option>
-                );
-              })}
+              {cities &&
+                cities.map((city, i) => {
+                  return (
+                    <option key={`${city.capital}-${i}`} value={city.capital}>
+                      {city.country} - {city.capital}
+                    </option>
+                  );
+                })}
             </select>
           </div>
         </div>
@@ -72,6 +73,8 @@ export const Form = ({
             labelText="Start"
             onChange={handleChangeFormData}
             value={formData.startDate}
+            minValue={new Date(Date.now()).toISOString().split("T")[0]}
+            maxValue={formData.endDate}
             labelColor="text-slate-300"
           />
           <Input
@@ -81,6 +84,7 @@ export const Form = ({
             labelText="End"
             onChange={handleChangeFormData}
             value={formData.endDate}
+            minValue={formData.startDate}
             labelColor="text-slate-300"
           />
           <Input
@@ -90,6 +94,7 @@ export const Form = ({
             labelText="Guests"
             value={formData.people}
             onChange={handleChangeFormData}
+            minValue={1}
             labelColor="text-slate-300"
           />
         </div>

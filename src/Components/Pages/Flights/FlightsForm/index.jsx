@@ -133,6 +133,8 @@ export const Form = ({
           labelText="From"
           labelColor="text-slate-300"
           value={formData.startDate}
+          minValue={new Date(Date.now()).toISOString().split('T')[0]}
+          maxValue={formData.endDate}
           name="startDate"
           onChange={handleChangeFormData}
         />
@@ -142,6 +144,7 @@ export const Form = ({
           labelText="To"
           labelColor="text-slate-300"
           value={formData.endDate}
+          minValue={formData.startDate}
           name="endDate"
           onChange={handleChangeFormData}
         />
@@ -154,6 +157,7 @@ export const Form = ({
           value={formData.passengers}
           name="passengers"
           onChange={handleChangeFormData}
+          minValue={1}
         />
       </div>
       <div className="col-span-1 w-full flex items-center justify-end gap-2 md:gap-6 mt-4">
