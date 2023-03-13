@@ -9,10 +9,11 @@ import { useNavigate } from "react-router-dom";
 
 export const Cart = () => {
   const navigate = useNavigate();
+
   const { user } = useContext(UserContext);
   const { cart, resetCart } = useContext(CartContext);
-
   const { flight, accomodation: hotel } = cart;
+
 
   const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
   const [isDownloadButtonEnabled, setIsDownloadButtonEnabled] = useState(false);
