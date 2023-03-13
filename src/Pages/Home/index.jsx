@@ -13,8 +13,10 @@ import { sortCities } from "../../utils/sortCities";
 
 export const Home = () => {
   const [allCities, setAllCities] = useState([]);
-  const { data } = useFetch("http://localhost:3000/cities");
   const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false);
+
+  const url = import.meta.env.VITE_API_BASE_URL;
+  const { data } = useFetch(`${url}/cities`);
 
   useEffect(() => {
     window.scrollTo({ top: 0 });

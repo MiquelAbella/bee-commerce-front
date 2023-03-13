@@ -257,10 +257,41 @@
             }
           },
           "date": "10/3/2023"
+        },
+        {
+          "cart": {
+            "flight": {
+              "origin": "",
+              "destination": "",
+              "startDate": "",
+              "endDate": "",
+              "price": 0,
+              "passengers": 1,
+              "country": ""
+            },
+            "accomodation": {
+              "destination": "Buenos Aires",
+              "startDate": "2023-03-16",
+              "endDate": "2023-03-24",
+              "people": 4,
+              "price": 30,
+              "name": "Luminous Fusion",
+              "country": "Argentina"
+            }
+          },
+          "date": "13/3/2023"
         }
       ],
       "registrationDate": 1678441425149,
       "id": 1
+    },
+    {
+      "email": "a@a.com",
+      "password": "a",
+      "fullname": "asdf",
+      "history": [],
+      "registrationDate": 1678703429457,
+      "id": 2
     }
   ],
   "cities": [

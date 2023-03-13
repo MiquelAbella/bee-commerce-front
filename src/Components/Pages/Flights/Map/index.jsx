@@ -4,8 +4,8 @@ import { useFetch } from "../../../../hooks/useFetch";
 
 export const MapView = ({ formData, setFormData }) => {
   const mapRef = useRef();
-
-  const { data: cities, isLoading } = useFetch("http://localhost:3000/cities");
+  const url = import.meta.env.VITE_API_BASE_URL;
+  const { data: cities, isLoading } = useFetch(`${url}/cities`);
 
   return (
     <div>

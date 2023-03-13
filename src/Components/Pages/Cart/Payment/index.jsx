@@ -28,8 +28,8 @@ const CheckoutForm = ({
   const { cart } = useContext(CartContext);
 
   const handleSubmit = async (e) => {
+    const url = import.meta.env.VITE_API_BASE_URL;
     e.preventDefault();
-
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: "card",
       card: elements.getElement(CardElement),
@@ -62,7 +62,7 @@ const CheckoutForm = ({
         if (user) {
           const { id } = user;
           addToHistory({ cart, date: new Date().toLocaleDateString() });
-          const res = await fetch(`http://localhost:3000/users/${id}/`, {
+          const res = await fetch(`${url}/users/${id}/`, {
             method: "PUT",
             body: JSON.stringify({
               ...user,

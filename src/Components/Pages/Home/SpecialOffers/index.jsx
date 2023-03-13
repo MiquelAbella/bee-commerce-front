@@ -7,7 +7,9 @@ import { OfferCard } from "../OfferCard";
 
 export const SpecialOffers = ({ city, setIsConfirmationModalOpen }) => {
   const [destinations, setDestinations] = useState(null);
-  const { data: cities, isLoading } = useFetch("http://localhost:3000/cities");
+  const url = import.meta.env.VITE_API_BASE_URL;
+
+  const { data: cities, isLoading } = useFetch(`${url}/cities`);
 
   useEffect(() => {
     if (!cities) return;

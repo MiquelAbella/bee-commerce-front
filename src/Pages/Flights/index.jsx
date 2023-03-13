@@ -11,7 +11,9 @@ export const Flights = () => {
   const { destination, startDate, endDate, people } = cart.accomodation;
   const [allCities, setAllCities] = useState(null);
   const [isFlightsModalOpen, setIsFlightsModalOpen] = useState(false);
-  const { data, isLoading, error } = useFetch("http://localhost:3000/cities");
+
+  const url = import.meta.env.VITE_API_BASE_URL;
+  const { data, isLoading, error } = useFetch(`${url}/cities`);
 
   useEffect(() => {
     window.scrollTo({ top: 0 });

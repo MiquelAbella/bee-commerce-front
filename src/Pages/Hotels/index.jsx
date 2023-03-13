@@ -24,16 +24,18 @@ export const Hotels = () => {
     people: passengers || 1,
   });
 
+  const url = import.meta.env.VITE_API_BASE_URL;
+
   const {
     data: allHotels,
     isLoading: hotelsLoading,
     error: hotelsError,
-  } = useFetch("http://localhost:3000/hotels");
+  } = useFetch(`${url}/hotels`);
   const {
     data: allCities,
     isLoading: citiesLoading,
     error: citiesError,
-  } = useFetch("http://localhost:3000/cities");
+  } = useFetch(`${url}/cities`);
 
   const validateForm = () => {
     const { destination, startDate, endDate, people } = formData;

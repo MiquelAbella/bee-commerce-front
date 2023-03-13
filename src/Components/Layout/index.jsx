@@ -11,19 +11,16 @@ export const Layout = ({ children }) => {
   const { user, logout, loginUser } = useContext(UserContext);
 
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
-
   const [loginFormData, setLoginFormData] = useState({
     email: "",
     password: "",
   });
-
   const [registerFormData, setRegisterFormData] = useState({
     fullname: "",
     email: "",
     password1: "",
     password2: "",
   });
-
   const [isLogin, setIsLogin] = useState(false);
 
   const handleChangeLoginFormData = (e) => {
@@ -37,12 +34,12 @@ export const Layout = ({ children }) => {
     });
   };
 
+  const url = import.meta.env.VITE_API_BASE_URL;
+
   const handleSubmitLogin = async (e) => {
     const { email, password } = loginFormData;
     e.preventDefault();
-    const res = await fetch(
-      `http://localhost:3000/users?email=${email}&password=${password}`
-    );
+    const res = await fetch(`${url}/users?email=${email}&password=${password}`);
     const user = await res.json();
     if (user.length) {
       loginUser(user[0]);
@@ -81,7 +78,7 @@ export const Layout = ({ children }) => {
       password1 !== password2
     )
       return;
-    const res = await fetch("http://localhost:3000/users", {
+    const res = await fetch(`${url}/users`, {
       method: "POST",
       body: JSON.stringify({
         email,
@@ -95,7 +92,7 @@ export const Layout = ({ children }) => {
       },
     });
     if (res.ok) {
-        console.log(res)
+      console.log(res);
       loginUser({
         email,
         password: password1,
