@@ -1,4 +1,5 @@
 # BeeTrips
+
 ### E-commerce made with react
 
 ## Features
@@ -9,9 +10,10 @@
 - History page with all the bookings you've made
 - PDF Download with booking details
 - Discount coupons
-- Stripe payments
+- Stripe payments: please use 4242 4242 4242 4242 as credit cart number (Stripe is in test mode and that is the cart allowed)
 
 ## Tools and libraries
+
 - React
 - Tailwind CSS
 - Mapbox
@@ -22,15 +24,18 @@
 - Express (just for stripe payments)
 
 ## Installation
+
 Download ZIP or clone project
 
 first terminal
+
 ```sh
 npm i
 npm run dev
 ```
 
 second terminal
+
 ```sh
 json-server --watch db.json
 ```
@@ -38,6 +43,7 @@ json-server --watch db.json
 ## Resources needed
 
 You have to download or clone the backend to make Stripe work. (bee-commerce-back )
+
 ```sh
 npm install
 node index.js
