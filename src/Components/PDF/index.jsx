@@ -45,7 +45,7 @@ export const Reservation = ({ cart, totalPrice }) => {
               <Text>Start date: {flight.startDate}</Text>
               <Text>End date: {flight.endDate}</Text>
               <Text>Passengers: {flight.passengers}</Text>
-              <Text>Price: {flight.price * flight.passengers} €</Text>
+              <Text>Price: {flight.price} €</Text>
             </View>
           </View>
         )}
@@ -66,7 +66,6 @@ export const Reservation = ({ cart, totalPrice }) => {
             </View>
           </View>
         )}
-        ´
         <View style={styles.container}>
           <Text>Total: {totalPrice}€</Text>
         </View>

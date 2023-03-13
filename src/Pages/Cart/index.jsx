@@ -88,7 +88,7 @@ export const Cart = () => {
                 fileName="reservation.pdf"
               >
                 <Button
-                  text="Download reservation in PDF"
+                  text="Download booking in PDF"
                   disabled={!isDownloadButtonEnabled}
                 />
               </PDFDownloadLink>
