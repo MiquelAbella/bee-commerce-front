@@ -283,14 +283,16 @@
         }
       ],
       "registrationDate": 1678441425149,
-      "id": 1
+      "id": 1,
+      "uid": "54b8b71c-31fc-48cf-871b-a2ab7d63e92d"
     },
     {
-      "email": "a@a.com",
-      "password": "a",
+      "email": "e@e.com",
+      "password": "e",
       "fullname": "asdf",
       "history": [],
-      "registrationDate": 1678703429457,
+      "registrationDate": 1678709743619,
+      "uid": "25495e04-f702-48ba-b5f1-a34b4518da7d",
       "id": 2
     }
   ],

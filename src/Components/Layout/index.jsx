@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import UserContext from "../../context/UserContext";
 import Swal from "sweetalert2";
+import { v4 as uuidv4 } from "uuid";
 
 import { Modal, Button, Footer, NavBar } from "../../Components";
 
@@ -78,6 +79,7 @@ export const Layout = ({ children }) => {
       password1 !== password2
     )
       return;
+    const userId = uuidv4();
     const res = await fetch(`${url}/users`, {
       method: "POST",
       body: JSON.stringify({
@@ -86,6 +88,7 @@ export const Layout = ({ children }) => {
         fullname,
         history: [],
         registrationDate: Date.now(),
+        uid: userId,
       }),
       headers: {
         "Content-Type": "application/json",
@@ -99,6 +102,7 @@ export const Layout = ({ children }) => {
         fullname,
         history: { flights: [], hotels: [] },
         registrationDate: Date.now(),
+        uid: userId,
       });
       Swal.fire({
         title:
