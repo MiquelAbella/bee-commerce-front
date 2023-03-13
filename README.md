@@ -10,7 +10,7 @@
 - History page with all the bookings you've made
 - PDF Download with booking details
 - Discount coupons
-- Stripe payments: please use 4242 4242 4242 4242 as credit cart number (Stripe is in test mode and that is the cart allowed)
+- Stripe payments: please use 4242 4242 4242 4242 as credit card number (Stripe is in test mode and that is the cart allowed)
 
 ## Tools and libraries
 
