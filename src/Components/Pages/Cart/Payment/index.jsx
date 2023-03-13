@@ -12,9 +12,8 @@ import { useContext, useState } from "react";
 import UserContext from "../../../../context/UserContext";
 import CartContext from "../../../../context/CartContext";
 
-const stripePromise = loadStripe(
-  "pk_test_51KnRFlBXC5oZe32SfBE13xG52BYqwVNyvdFpj1KAkFL5eimkDNNJarbSUekrZTpkWBDQKHZmvy0GDx937smFwmC300CI5Td52Y"
-);
+const stripeKey = import.meta.env.VITE_STRIPE_KEY;
+const stripePromise = loadStripe(stripeKey);
 
 const CheckoutForm = ({
   isDownloadButtonEnabled,

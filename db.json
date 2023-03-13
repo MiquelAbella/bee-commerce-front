@@ -2,7 +2,7 @@
   "users": [
     {
       "email": "m@m.com",
-      "password": "m",
+      "password": "12345678",
       "fullname": "Miquel Abella",
       "history": [
         {
