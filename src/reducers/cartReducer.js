@@ -1,24 +1,4 @@
-export const initialState = {
-  flight: {
-    origin: "",
-    destination: "",
-    startDate: "",
-    endDate: "",
-    price: 0,
-    passengers: 1,
-    country: "",
-  },
-  accomodation: {
-    destination: "",
-    startDate: "",
-    endDate: "",
-    people: 1,
-    price: 0,
-    name: "",
-    country: "",
-  },
-};
-
+// Mock data for dev purposes
 // export const initialState = {
 //   flight: {
 //     origin: "Andorra la Vella",
@@ -39,6 +19,27 @@ export const initialState = {
 //     country: "Albania",
 //   },
 // };
+
+export const initialState = {
+  flight: {
+    origin: "",
+    destination: "",
+    startDate: "",
+    endDate: "",
+    price: 0,
+    passengers: 1,
+    country: "",
+  },
+  accomodation: {
+    destination: "",
+    startDate: "",
+    endDate: "",
+    people: 1,
+    price: 0,
+    name: "",
+    country: "",
+  },
+};
 
 export const cartReducer = (state = initialState, action) => {
   switch (action.type) {
