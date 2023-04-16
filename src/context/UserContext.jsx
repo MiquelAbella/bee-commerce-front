@@ -15,6 +15,7 @@ export const UserProvider = ({ children }) => {
     const { _id } = user;
     setUid(_id);
     dispatch({ type: types.loginUser, payload: { ...user } });
+    localStorage.setItem("uid", uid);
   };
 
   const logout = () => {
@@ -38,10 +39,9 @@ export const UserProvider = ({ children }) => {
         loginUser(data.user._id);
       }
     };
-    if (uid !== 'null' && uid !== 'undefined') {
+    if (uid !== "null" && uid !== "undefined") {
       getUser();
     }
-      localStorage.setItem("uid", String(uid));
   }, [uid]);
 
   return (
