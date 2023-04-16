@@ -26,24 +26,24 @@ export const UserProvider = ({ children }) => {
     dispatch({ type: types.addToHistory, payload: product });
   };
 
-  useEffect(() => {
-    const getUser = async () => {
-      console.log(uid);
-      const res = await fetch(`${url}/users/${uid}`, {
-        headers: {
-          "Access-Control-Allow-Origin":
-            "https://bee-commerce-back-production.up.railway.app",
-        },
-      });
-      const data = await res.json();
-      loginUser(data.user._id);
-    };
-    if (uid !== "null") {
-      console.log(uid);
-      getUser();
-    }
-    localStorage.setItem("uid", uid);
-  }, [uid]);
+//   useEffect(() => {
+//     const getUser = async () => {
+//       console.log(uid);
+//       const res = await fetch(`${url}/users/${uid}`, {
+//         headers: {
+//           "Access-Control-Allow-Origin":
+//             "https://bee-commerce-back-production.up.railway.app",
+//         },
+//       });
+//       const data = await res.json();
+//       loginUser(data.user._id);
+//     };
+//     if (uid !== "null") {
+//       console.log(uid);
+//       getUser();
+//     }
+//     localStorage.setItem("uid", uid);
+//   }, [uid]);
 
   return (
     <UserContext.Provider
