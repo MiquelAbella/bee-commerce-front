@@ -9,7 +9,7 @@ const url = import.meta.env.VITE_API_BASE_URL;
 
 export const UserProvider = ({ children }) => {
   const [state, dispatch] = useReducer(userReducer, initialState);
-  const [uid, setUid] = useState(JSON.parse(localStorage.getItem("uid")));
+  const [uid, setUid] = useState(localStorage.getItem("uid"));
   console.log(uid);
   const loginUser = (user) => {
     const { _id } = user;
@@ -32,7 +32,7 @@ export const UserProvider = ({ children }) => {
       const data = await res.json();
       loginUser(data.user);
     };
-    if (uid) {
+    if (uid !== "null") {
       console.log(uid);
       getUser();
     }
