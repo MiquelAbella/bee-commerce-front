@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import CartContext from "../../context/CartContext";
-import { Button, Modal, Reservation } from "../../components";
+import { Button, Modal, Reservation } from "../../Components";
 import { Bill, Payment, PartnersSection } from "../../Components/Pages/Cart";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import UserContext from "../../context/UserContext";
