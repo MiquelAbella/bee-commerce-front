@@ -40,15 +40,15 @@ export const Layout = ({ children }) => {
   const handleSubmitLogin = async (e) => {
     const { email, password } = loginFormData;
     e.preventDefault();
-     const res = await fetch(`http://bee-commerce-back.vercel.app//loginUser`, {
+    const res = await fetch(`http://bee-commerce-back.vercel.app//loginUser`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ email: email, password: password }),
-    })
+    });
     const data = await res.json();
-    
+
     if (data.user) {
       loginUser(data.user);
       Swal.fire({
@@ -91,8 +91,13 @@ export const Layout = ({ children }) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
       },
-      body: JSON.stringify({ email: email, password: password1, fullName: fullname }),
+      body: JSON.stringify({
+        email: email,
+        password: password1,
+        fullName: fullname,
+      }),
     })
       .then((response) => response.json())
       .then((data) => console.log(data))
