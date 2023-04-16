@@ -45,7 +45,7 @@ export const Layout = ({ children }) => {
       {
         method: "POST",
         headers: {
-          mode: "cors",
+          mode: "no-cors",
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*",
         },
