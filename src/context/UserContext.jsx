@@ -1,16 +1,15 @@
-import { useEffect, useState } from "react";
-import { createContext, useReducer } from "react";
+import { useEffect, useState, createContext, useReducer } from "react";
 import { userReducer, initialState } from "../reducers/userReducer";
 import { types } from "../types/types";
 
-export const UserContext = createContext(null);
+export const UserContext = createContext();
 
-const url = import.meta.env.VITE_API_BASE_URL;
+const url = process.env.VITE_API_BASE_URL;
 
 export const UserProvider = ({ children }) => {
   const [state, dispatch] = useReducer(userReducer, initialState);
   const [uid, setUid] = useState(localStorage.getItem("uid"));
-  console.log(uid);
+
   const loginUser = (user) => {
     const { _id } = user;
     setUid(_id);
@@ -26,23 +25,23 @@ export const UserProvider = ({ children }) => {
     dispatch({ type: types.addToHistory, payload: product });
   };
 
-//   useEffect(() => {
-//     const getUser = async () => {
-//       const res = await fetch(`${url}/users/${uid}`, {
-//         headers: {
-//           "Access-Control-Allow-Origin":
-//             "https://bee-commerce-back-production.up.railway.app",
-//         },
-//       });
-//       const data = await res.json();
-//       loginUser(data.user._id);
-//     };
-//     if (uid !== "null" || uid !== "undefined") {
-//       console.log(uid);
-//       localStorage.setItem("uid", uid);
-//       getUser();
-//     }
-//   }, [uid]);
+  useEffect(() => {
+    const getUser = async () => {
+      if (uid) {
+        const res = await fetch(`${url}/users/${uid}`, {
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+          },
+        });
+        const data = await res.json();
+        loginUser(data.user._id);
+      }
+    };
+    if (uid !== null && uid !== undefined) {
+      localStorage.setItem("uid", String(uid));
+      getUser();
+    }
+  }, [uid]);
 
   return (
     <UserContext.Provider
@@ -58,4 +57,4 @@ export const UserProvider = ({ children }) => {
   );
 };
 
-export default UserContext;
+export { UserContext };
