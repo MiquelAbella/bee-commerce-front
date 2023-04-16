@@ -41,7 +41,7 @@ export const Layout = ({ children }) => {
     const { email, password } = loginFormData;
     e.preventDefault();
     const res = await fetch(
-      `http://bee-commerce-back-production.up.railway.app//loginUser`,
+      `http://bee-commerce-back-production.up.railway.app/loginUser`,
       {
         method: "POST",
         headers: {
