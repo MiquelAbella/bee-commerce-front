@@ -38,7 +38,7 @@ export const UserProvider = ({ children }) => {
         loginUser(data.user._id);
       }
     };
-    if (uid !== null && uid !== undefined) {
+    if (uid !== 'null' && uid !== 'undefined') {
       localStorage.setItem("uid", String(uid));
       getUser();
     }
