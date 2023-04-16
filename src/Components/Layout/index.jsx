@@ -40,14 +40,18 @@ export const Layout = ({ children }) => {
   const handleSubmitLogin = async (e) => {
     const { email, password } = loginFormData;
     e.preventDefault();
-    const res = await fetch(`http://bee-commerce-back-production.up.railway.app//loginUser`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-         "Access-Control-Allow-Origin": "*"
-      },
-      body: JSON.stringify({ email: email, password: password }),
-    });
+    const res = await fetch(
+      `http://bee-commerce-back-production.up.railway.app//loginUser`,
+      {
+        method: "POST",
+        headers: {
+          mode: "cors",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+        body: JSON.stringify({ email: email, password: password }),
+      }
+    );
     const data = await res.json();
 
     if (data.user) {
@@ -88,17 +92,20 @@ export const Layout = ({ children }) => {
     )
       return;
 
-    const res = await fetch(`http://bee-commerce-back-production.up.railway.app/createUser`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email: email,
-        password: password1,
-        fullName: fullname,
-      }),
-    })
+    const res = await fetch(
+      `http://bee-commerce-back-production.up.railway.app/createUser`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password1,
+          fullName: fullname,
+        }),
+      }
+    )
       .then((response) => response.json())
       .then((data) => console.log(data))
       .catch((error) => console.error(error));
