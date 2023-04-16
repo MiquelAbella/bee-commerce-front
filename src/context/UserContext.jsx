@@ -10,7 +10,7 @@ const url = import.meta.env.VITE_API_BASE_URL;
 export const UserProvider = ({ children }) => {
   const [state, dispatch] = useReducer(userReducer, initialState);
   const [uid, setUid] = useState(JSON.parse(localStorage.getItem("uid")));
-
+  console.log(uid);
   const loginUser = (user) => {
     const { _id } = user;
     setUid(_id);
