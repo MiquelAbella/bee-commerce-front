@@ -39,9 +39,9 @@ export const UserProvider = ({ children }) => {
       }
     };
     if (uid !== 'null' && uid !== 'undefined') {
-      localStorage.setItem("uid", String(uid));
       getUser();
     }
+      localStorage.setItem("uid", String(uid));
   }, [uid]);
 
   return (
