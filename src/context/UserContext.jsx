@@ -26,17 +26,18 @@ export const UserProvider = ({ children }) => {
     dispatch({ type: types.addToHistory, payload: product });
   };
 
-  useEffect(() => {
-    const getUser = async () => {
-      const res = await fetch(`${url}/users/${uid}`);
-      const data = await res.json();
-      loginUser(data.user);
-    };
-    if (uid) {
-      getUser();
-    }
-    localStorage.setItem("uid", uid);
-  }, [uid]);
+//   useEffect(() => {
+//     const getUser = async () => {
+//       const res = await fetch(`${url}/users/${uid}`);
+//       const data = await res.json();
+//       loginUser(data.user);
+//     };
+//     if (uid) {
+//         console.log(uid)
+//       getUser();
+//     }
+//     localStorage.setItem("uid", uid);
+//   }, [uid]);
 
   return (
     <UserContext.Provider
