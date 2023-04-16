@@ -40,7 +40,7 @@ export const Layout = ({ children }) => {
   const handleSubmitLogin = async (e) => {
     const { email, password } = loginFormData;
     e.preventDefault();
-     const res = await fetch(`http://https://bee-commerce-back.vercel.app//loginUser`, {
+     const res = await fetch(`http://bee-commerce-back.vercel.app//loginUser`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
