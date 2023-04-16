@@ -37,7 +37,7 @@ const CheckoutForm = ({
     if (!error) {
       const { id } = paymentMethod;
       setisLoading(true);
-      const res = await fetch("http://bee-commerce-back.vercel.app/checkout", {
+      const res = await fetch("http://bee-commerce-back-production.up.railway.app/checkout", {
         method: "POST",
         body: JSON.stringify({
           id,

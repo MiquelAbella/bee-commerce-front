@@ -26,7 +26,7 @@ export const Form = ({
       return;
     }
 
-    await fetch(`http://bee-commerce-back.vercel.app//hotels/${formData.destination}`)
+    await fetch(`http://bee-commerce-back-production.up.railway.app//hotels/${formData.destination}`)
       .then((res) => res.json())
       .then((data) => {
         setHotelsInCity(data.hotels);

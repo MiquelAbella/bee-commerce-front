@@ -40,7 +40,7 @@ export const Layout = ({ children }) => {
   const handleSubmitLogin = async (e) => {
     const { email, password } = loginFormData;
     e.preventDefault();
-    const res = await fetch(`http://bee-commerce-back.vercel.app//loginUser`, {
+    const res = await fetch(`http://bee-commerce-back-production.up.railway.app//loginUser`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -88,7 +88,7 @@ export const Layout = ({ children }) => {
     )
       return;
 
-    const res = await fetch(`http://bee-commerce-back.vercel.app/createUser`, {
+    const res = await fetch(`http://bee-commerce-back-production.up.railway.app/createUser`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
