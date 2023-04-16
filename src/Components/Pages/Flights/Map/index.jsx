@@ -6,7 +6,7 @@ export const MapView = ({ formData, setFormData }) => {
   const mapRef = useRef();
   const url = import.meta.env.VITE_API_BASE_URL;
   const { data: cities, isLoading } = useFetch(`${url}/cities`);
-
+  console.log(cities);
   return (
     <div>
       <div className="w-full flex items-center justify-center">
@@ -26,8 +26,8 @@ export const MapView = ({ formData, setFormData }) => {
               mapboxAccessToken="pk.eyJ1IjoibWlrZWJlZWdhciIsImEiOiJjbGVibHV6b2EwOWhjM29yeHFubDI5bGIyIn0.crrhMRpd6hHlOTmRMxGFeQ"
             >
               {!isLoading &&
-                cities &&
-                cities.map((city, i) => {
+                cities.cities &&
+                cities.cities.map((city, i) => {
                   const { latitude, longitude } = city;
 
                   return (

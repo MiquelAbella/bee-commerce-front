@@ -27,7 +27,7 @@ export const Form = ({
   };
 
   const handleSubmit = () => {
-    const country = cities.filter((city) => {
+    const country = cities.cities.filter((city) => {
       return city.capital === formData.destination;
     })[0];
     bookFlight({ ...formData, country: country.country });
@@ -40,10 +40,10 @@ export const Form = ({
 
   useEffect(() => {
     if (formData.origin && formData.destination) {
-      const originCity = cities.filter(
+      const originCity = cities.cities.filter(
         (city) => city.capital === formData.origin
       )[0];
-      const destinationCity = cities.filter(
+      const destinationCity = cities.cities.filter(
         (city) => city.capital === formData.destination
       )[0];
 
@@ -95,7 +95,7 @@ export const Form = ({
             onChange={handleChangeFormData}
           >
             <option value="">Select origin</option>
-            {cities.map((city, i) => {
+            {cities.cities.map((city, i) => {
               return (
                 <option key={`${city.country}-${i}`} value={city.capital}>
                   {city.country} - {city.capital}
@@ -116,7 +116,7 @@ export const Form = ({
             onChange={handleChangeFormData}
           >
             <option value="">Select destination</option>
-            {cities.map((city, i) => {
+            {cities.cities.map((city, i) => {
               return (
                 <option key={`${city.capital}-${i}`} value={city.capital}>
                   {city.country} - {city.capital}

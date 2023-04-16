@@ -26,11 +26,11 @@ export const Hotels = () => {
 
   const url = import.meta.env.VITE_API_BASE_URL;
 
-  const {
-    data: allHotels,
-    isLoading: hotelsLoading,
-    error: hotelsError,
-  } = useFetch(`${url}/hotels`);
+//   const {
+//     data: allHotels,
+//     isLoading: hotelsLoading,
+//     error: hotelsError,
+//   } = useFetch(`${url}/hotels`);
   const {
     data: allCities,
     isLoading: citiesLoading,
@@ -66,10 +66,10 @@ export const Hotels = () => {
         >
           <Form
             setHotelsInCity={setHotelsInCity}
-            allHotels={allHotels}
+            // allHotels={allHotels}
             setFormData={setFormData}
             formData={formData}
-            isLoading={hotelsLoading || citiesLoading}
+            isLoading={citiesLoading}
             cities={allCities}
           />
         </div>

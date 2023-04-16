@@ -280,6 +280,75 @@
             }
           },
           "date": "13/3/2023"
+        },
+        {
+          "cart": {
+            "flight": {
+              "origin": "Alpicat",
+              "destination": "Brasília",
+              "startDate": "2023-03-15",
+              "endDate": "2023-03-23",
+              "price": 3236,
+              "passengers": 2,
+              "country": "Brazil"
+            },
+            "accomodation": {
+              "destination": "Brasília",
+              "startDate": "2023-03-15",
+              "endDate": "2023-03-23",
+              "people": 2,
+              "price": 50,
+              "name": "Horizon Paradise",
+              "country": "Brazil"
+            }
+          },
+          "date": "13/3/2023"
+        },
+        {
+          "cart": {
+            "flight": {
+              "origin": "Alpicat",
+              "destination": "Berlin",
+              "startDate": "2023-03-14",
+              "endDate": "2023-03-28",
+              "price": 1540,
+              "passengers": "5",
+              "country": "Germany"
+            },
+            "accomodation": {
+              "destination": "Berlin",
+              "startDate": "2023-03-14",
+              "endDate": "2023-03-28",
+              "people": "5",
+              "price": 31,
+              "name": "Diamond Ascend",
+              "country": "Germany"
+            }
+          },
+          "date": "13/3/2023"
+        },
+        {
+          "cart": {
+            "flight": {
+              "origin": "Alpicat",
+              "destination": "Berlin",
+              "startDate": "2023-03-17",
+              "endDate": "2023-03-24",
+              "price": 1232,
+              "passengers": "4",
+              "country": "Germany"
+            },
+            "accomodation": {
+              "destination": "Berlin",
+              "startDate": "2023-03-17",
+              "endDate": "2023-03-24",
+              "people": "4",
+              "price": 39,
+              "name": "Diamond Opulence",
+              "country": "Germany"
+            }
+          },
+          "date": "13/3/2023"
         }
       ],
       "registrationDate": 1678441425149,
@@ -287,13 +356,69 @@
       "uid": "54b8b71c-31fc-48cf-871b-a2ab7d63e92d"
     },
     {
-      "email": "e@e.com",
-      "password": "e",
-      "fullname": "asdf",
-      "history": [],
-      "registrationDate": 1678709743619,
-      "uid": "25495e04-f702-48ba-b5f1-a34b4518da7d",
+      "email": "f@f.com",
+      "password": "123456",
+      "fullname": "gfkjgkj",
+      "history": [
+        {
+          "cart": {
+            "flight": {
+              "origin": "",
+              "destination": "",
+              "startDate": "",
+              "endDate": "",
+              "price": 0,
+              "passengers": 1,
+              "country": ""
+            },
+            "accomodation": {
+              "destination": "Tirana",
+              "startDate": "2023-03-14",
+              "endDate": "2023-03-17",
+              "people": 1,
+              "price": 47,
+              "name": "Empire Infinity",
+              "country": "Albania"
+            }
+          },
+          "date": "13/3/2023"
+        },
+        {
+          "cart": {
+            "flight": {
+              "origin": "Alpicat",
+              "destination": "Manila",
+              "startDate": "2023-03-17",
+              "endDate": "2023-03-31",
+              "price": 13536,
+              "passengers": "6",
+              "country": "Philippines"
+            },
+            "accomodation": {
+              "destination": "Manila",
+              "startDate": "2023-03-17",
+              "endDate": "2023-03-31",
+              "people": "6",
+              "price": 45,
+              "name": "Opulence Utopia",
+              "country": "Philippines"
+            }
+          },
+          "date": "13/3/2023"
+        }
+      ],
+      "registrationDate": 1678723513305,
+      "uid": "14f413bb-8911-4497-824c-3cc0f8b267f3",
       "id": 2
+    },
+    {
+      "email": "mabell39@xtec.cat",
+      "password": "asd",
+      "fullname": "sdfg",
+      "history": [],
+      "registrationDate": 1678726523431,
+      "uid": "f1a74034-6ab2-4ce6-b3e6-e79d4cf1ddb5",
+      "id": 3
     }
   ],
   "cities": [

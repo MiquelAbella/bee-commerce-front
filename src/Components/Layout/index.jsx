@@ -40,10 +40,17 @@ export const Layout = ({ children }) => {
   const handleSubmitLogin = async (e) => {
     const { email, password } = loginFormData;
     e.preventDefault();
-    const res = await fetch(`${url}/users?email=${email}&password=${password}`);
-    const user = await res.json();
-    if (user.length) {
-      loginUser(user[0]);
+     const res = await fetch(`http://https://bee-commerce-back.vercel.app//loginUser`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email: email, password: password }),
+    })
+    const data = await res.json();
+    
+    if (data.user) {
+      loginUser(data.user);
       Swal.fire({
         title: "Login successfuly",
         icon: "success",
@@ -79,41 +86,52 @@ export const Layout = ({ children }) => {
       password1 !== password2
     )
       return;
-    const userId = uuidv4();
-    const res = await fetch(`${url}/users`, {
+
+    const res = await fetch(`http://https://bee-commerce-back.vercel.app//createUser`, {
       method: "POST",
-      body: JSON.stringify({
-        email,
-        password: password1,
-        fullname,
-        history: [],
-        registrationDate: Date.now(),
-        uid: userId,
-      }),
       headers: {
         "Content-Type": "application/json",
       },
-    });
-    if (res.ok) {
-      console.log(res);
-      loginUser({
-        email,
-        password: password1,
-        fullname,
-        history: { flights: [], hotels: [] },
-        registrationDate: Date.now(),
-        uid: userId,
-      });
-      Swal.fire({
-        title:
-          "Successfuly registered, you have just won a 5% discount for 24h",
-        icon: "success",
-        confirmButtonText: "Proceed",
-      });
-      setIsLoginModalOpen(false);
-    } else {
-      console.log("Something happened");
-    }
+      body: JSON.stringify({ email: email, password: password1, fullName: fullname }),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.error(error));
+    const userId = uuidv4();
+    // const res = await fetch(`${url}/users`, {
+    //   method: "POST",
+    //   body: JSON.stringify({
+    //     email,
+    //     password: password1,
+    //     fullname,
+    //     history: [],
+    //     registrationDate: Date.now(),
+    //     uid: userId,
+    //   }),
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    // });
+    // if (res.ok) {
+    //   console.log(res);
+    //   loginUser({
+    //     email,
+    //     password: password1,
+    //     fullname,
+    //     history: { flights: [], hotels: [] },
+    //     registrationDate: Date.now(),
+    //     uid: userId,
+    //   });
+    //   Swal.fire({
+    //     title:
+    //       "Successfuly registered, you have just won a 5% discount for 24h",
+    //     icon: "success",
+    //     confirmButtonText: "Proceed",
+    //   });
+    //   setIsLoginModalOpen(false);
+    // } else {
+    //   console.log("Something happened");
+    // }
   };
 
   return (

@@ -12,8 +12,8 @@ export const UserProvider = ({ children }) => {
   const [uid, setUid] = useState(localStorage.getItem("uid"));
 
   const loginUser = (user) => {
-    const { uid } = user;
-    setUid(uid);
+    const { _id } = user;
+    setUid(_id);
     dispatch({ type: types.loginUser, payload: { ...user } });
   };
 
@@ -28,9 +28,9 @@ export const UserProvider = ({ children }) => {
 
   useEffect(() => {
     const getUser = async () => {
-      const res = await fetch(`${url}/users?uid=${uid}`);
+      const res = await fetch(`${url}/users/${uid}`);
       const data = await res.json();
-      loginUser(data[0]);
+      loginUser(data.user);
     };
     if (uid) {
       getUser();

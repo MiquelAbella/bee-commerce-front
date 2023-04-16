@@ -16,7 +16,7 @@ export const Home = () => {
   const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false);
 
   const url = import.meta.env.VITE_API_BASE_URL;
-  const { data } = useFetch(`${url}/cities`);
+  const { data, isLoading } = useFetch(`${url}/cities`);
 
   useEffect(() => {
     window.scrollTo({ top: 0 });
@@ -65,10 +65,12 @@ export const Home = () => {
       );
     }
 
-    if (location?.lat && allCities) {
+    if (location?.lat && allCities?.length) {
       getNearestCity();
     }
   }, [location, allCities]);
+  
+  
 
   return (
     <div className="mt-24">

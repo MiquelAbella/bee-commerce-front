@@ -9,7 +9,7 @@ export const Dashboard = () => {
   return (
     <div className="mt-24 min-h-screen p-8 flex">
       <div className="w-full">
-        <Typography text={`Hello ${user.fullname}`} type="big" />
+        <Typography text={`Hello ${user.fullName}`} type="big" />
         <Typography text="Here you can see all the reservations you made" />
         <div className="flex flex-wrap gap-6 items-start justify-start w-full">
           {user.history.length ? (

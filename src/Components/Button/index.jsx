@@ -32,7 +32,7 @@ export const Button = ({
   const type = outline ? "outline" : "fill";
   const disabledClass = disabled ? "opacity-50" : "";
 
-  let finalClassName = `centered rounded-md flex inline-flex justify-center items-center transition ${sizes[size]} ${buttonColors[color][type]} ${disabledClass} hover:${buttonColors[color][type]}/80`;
+  const finalClassName = `centered rounded-md flex inline-flex justify-center items-center transition ${sizes[size]} ${buttonColors[color][type]} ${disabledClass} hover:${buttonColors[color][type]}/80`;
 
   return (
     <button disabled={disabled} onClick={onClick} className={finalClassName}>

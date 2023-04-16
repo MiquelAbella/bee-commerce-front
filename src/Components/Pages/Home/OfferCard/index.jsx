@@ -34,7 +34,9 @@ export const OfferCard = ({
   };
 
   useEffect(() => {
-    getPrice();
+    if (city && destination) {
+      getPrice();
+    }
   }, [city, destination]);
 
   const oneDayInMilliseconds = 86400000;

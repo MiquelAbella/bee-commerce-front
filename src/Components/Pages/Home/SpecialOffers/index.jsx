@@ -10,16 +10,16 @@ export const SpecialOffers = ({ city, setIsConfirmationModalOpen }) => {
   const url = import.meta.env.VITE_API_BASE_URL;
 
   const { data: cities, isLoading } = useFetch(`${url}/cities`);
-
   useEffect(() => {
     if (!cities) return;
+
     setDestinations([
-      cities[Math.floor(Math.random() * cities.length)],
-      cities[Math.floor(Math.random() * cities.length)],
-      cities[Math.floor(Math.random() * cities.length)],
-      cities[Math.floor(Math.random() * cities.length)],
-      cities[Math.floor(Math.random() * cities.length)],
-      cities[Math.floor(Math.random() * cities.length)],
+      cities.cities[Math.floor(Math.random() * cities.cities.length)],
+      cities.cities[Math.floor(Math.random() * cities.cities.length)],
+      cities.cities[Math.floor(Math.random() * cities.cities.length)],
+      cities.cities[Math.floor(Math.random() * cities.cities.length)],
+      cities.cities[Math.floor(Math.random() * cities.cities.length)],
+      cities.cities[Math.floor(Math.random() * cities.cities.length)],
     ]);
   }, [cities]);
 

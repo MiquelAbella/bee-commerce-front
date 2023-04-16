@@ -1,13 +1,10 @@
-import { Button } from "../../../Button";
-import { Input } from "../../../Input";
-import { Typography } from "../../../Typography";
 import Swal from "sweetalert2";
+import { Input, Button, Typography } from "../../../index";
 
 export const Form = ({
   setFormData,
   formData,
   setHotelsInCity,
-  allHotels,
   cities,
   isLoading,
 }) => {
@@ -19,7 +16,7 @@ export const Form = ({
     }
   };
 
-  const handleScrollToHotels = () => {
+  const handleScrollToHotels = async () => {
     if (!formData.destination.length) {
       Swal.fire({
         title: "Select a destination",
@@ -28,11 +25,12 @@ export const Form = ({
       });
       return;
     }
-    setHotelsInCity(
-      allHotels.filter((hotel) => {
-        return hotel.city.capital === formData.destination;
-      })
-    );
+
+    await fetch(`http://https://bee-commerce-back.vercel.app//hotels/${formData.destination}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setHotelsInCity(data.hotels);
+      });
     setTimeout(() => {
       window.scrollTo({ top: 99999, behavior: "smooth" });
     }, 200);
@@ -55,7 +53,7 @@ export const Form = ({
             >
               <option value="">Select destination</option>
               {cities &&
-                cities.map((city, i) => {
+                cities.cities.map((city, i) => {
                   return (
                     <option key={`${city.capital}-${i}`} value={city.capital}>
                       {city.country} - {city.capital}
