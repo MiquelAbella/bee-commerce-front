@@ -22,7 +22,7 @@ export const useFetch = (url) => {
         const res = await fetch(url, {
           headers: {
             "Access-Control-Allow-Origin":
-              "https://bee-commerce-front.vercel.app",
+              "https://bee-commerce-back-production.up.railway.app/",
           },
         });
         const data = await res.json();
