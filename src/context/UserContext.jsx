@@ -1,15 +1,16 @@
-import { useEffect, useState, createContext, useReducer } from "react";
+import { useEffect, useState } from "react";
+import { createContext, useReducer } from "react";
 import { userReducer, initialState } from "../reducers/userReducer";
 import { types } from "../types/types";
 
-export const UserContext = createContext();
+export const UserContext = createContext(null);
 
-const url = process.env.VITE_API_BASE_URL;
+const url = import.meta.env.VITE_API_BASE_URL;
 
 export const UserProvider = ({ children }) => {
   const [state, dispatch] = useReducer(userReducer, initialState);
   const [uid, setUid] = useState(localStorage.getItem("uid"));
-
+  console.log(uid);
   const loginUser = (user) => {
     const { _id } = user;
     setUid(_id);
@@ -57,4 +58,4 @@ export const UserProvider = ({ children }) => {
   );
 };
 
-export { UserContext };
+export default UserContext;
