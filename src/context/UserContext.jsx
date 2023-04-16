@@ -28,6 +28,7 @@ export const UserProvider = ({ children }) => {
 
   useEffect(() => {
     const getUser = async () => {
+      console.log(uid);
       const res = await fetch(`${url}/users/${uid}`, {
         headers: {
           "Access-Control-Allow-Origin":
@@ -35,7 +36,7 @@ export const UserProvider = ({ children }) => {
         },
       });
       const data = await res.json();
-      loginUser(data.user);
+      loginUser(data.user._id);
     };
     if (uid !== "null") {
       console.log(uid);
