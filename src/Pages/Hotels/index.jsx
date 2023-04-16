@@ -1,8 +1,8 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { useFetch } from "../../hooks/useFetch";
 import CartContext from "../../context/CartContext";
-import { Typography, Video } from "../../Components";
 import { Form, HotelCard, HotelsModal } from "../../Components/Pages/Hotels";
+import { Typography, Video } from "../../Components";
 
 import hotelVideo from "../../assets/videos/hotel.mp4";
 
