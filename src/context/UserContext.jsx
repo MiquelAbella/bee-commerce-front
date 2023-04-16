@@ -28,7 +28,12 @@ export const UserProvider = ({ children }) => {
 
   useEffect(() => {
     const getUser = async () => {
-      const res = await fetch(`${url}/users/${uid}`);
+      const res = await fetch(`${url}/users/${uid}`, {
+        headers: {
+          "Access-Control-Allow-Origin":
+            "https://bee-commerce-back-production.up.railway.app",
+        },
+      });
       const data = await res.json();
       loginUser(data.user);
     };

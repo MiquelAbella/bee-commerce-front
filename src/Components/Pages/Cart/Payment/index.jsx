@@ -37,17 +37,20 @@ const CheckoutForm = ({
     if (!error) {
       const { id } = paymentMethod;
       setisLoading(true);
-      const res = await fetch("http://bee-commerce-back-production.up.railway.app/checkout", {
-        method: "POST",
-        body: JSON.stringify({
-          id,
-          amount: totalPrice * 100,
-        }),
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-      });
+      const res = await fetch(
+        "http://bee-commerce-back-production.up.railway.app/checkout",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            id,
+            amount: totalPrice * 100,
+          }),
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+        }
+      );
       const data = await res.json();
 
       if (data.ok) {
@@ -73,6 +76,8 @@ const CheckoutForm = ({
             headers: {
               Accept: "application/json",
               "Content-Type": "application/json",
+              "Access-Control-Allow-Origin":
+                "https://bee-commerce-back-production.up.railway.app",
             },
           });
         }

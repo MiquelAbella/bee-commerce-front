@@ -98,6 +98,8 @@ export const Layout = ({ children }) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Access-Control-Allow-Origin":
+            "https://bee-commerce-back-production.up.railway.app",
         },
         body: JSON.stringify({
           email: email,
