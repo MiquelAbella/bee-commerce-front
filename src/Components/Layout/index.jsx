@@ -87,7 +87,7 @@ export const Layout = ({ children }) => {
     )
       return;
 
-    const res = await fetch(`http://https://bee-commerce-back.vercel.app//createUser`, {
+    const res = await fetch(`http://bee-commerce-back.vercel.app/createUser`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
