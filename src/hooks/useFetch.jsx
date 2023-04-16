@@ -19,7 +19,12 @@ export const useFetch = (url) => {
 
     const fetchData = async () => {
       try {
-        const res = await fetch(url);
+        const res = await fetch(url, {
+          headers: {
+            "Access-Control-Allow-Origin":
+              "https://bee-commerce-front.vercel.app",
+          },
+        });
         const data = await res.json();
         if (isMounted.current) {
           setState({
