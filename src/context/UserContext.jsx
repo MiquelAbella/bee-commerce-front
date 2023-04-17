@@ -21,11 +21,26 @@ export const UserProvider = ({ children }) => {
   const logout = () => {
     setUid(null);
     dispatch({ type: types.logout });
-     localStorage.removeItem("uid");
+    localStorage.removeItem("uid");
   };
 
-  const addToHistory = (product) => {
-    dispatch({ type: types.addToHistory, payload: product });
+  const addToHistory = async (product) => {
+    const res = await fetch(
+      "https://bee-commerce-back-production.up.railway.app/addhistory",
+      {
+        method: "POST",
+        headers: {
+          mode: "no-cors",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+        body: JSON.stringify({ uid: uid, product: product }),
+      }
+    );
+    const data = await res.json();
+    if (data.ok) {
+      dispatch({ type: types.loginUser, payload: { ...user } });
+    }
   };
 
   useEffect(() => {
