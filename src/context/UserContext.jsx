@@ -39,7 +39,7 @@ export const UserProvider = ({ children }) => {
     );
     const data = await res.json();
     if (data.ok) {
-      dispatch({ type: types.loginUser, payload: { ...user } });
+      dispatch({ type: types.loginUser, payload: { ...data.user } });
     }
   };
 
