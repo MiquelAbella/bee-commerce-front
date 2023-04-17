@@ -109,9 +109,24 @@ export const Layout = ({ children }) => {
       }
     )
       .then((response) => response.json())
-      .then((data) => console.log(data))
+      .then((data) => {
+        if (data.ok) {
+          loginUser(data.user);
+          Swal.fire({
+            title: "Registered successfuly",
+            icon: "success",
+            confirmButtonText: "Proceed",
+          });
+        } else {
+          Swal.fire({
+            title: `Ooops, ${data?.msg}`,
+            icon: "error",
+            confirmButtonText: "Try again",
+          });
+        }
+      })
       .catch((error) => console.error(error));
-    const userId = uuidv4();
+    // const userId = uuidv4();
     // const res = await fetch(`${url}/users`, {
     //   method: "POST",
     //   body: JSON.stringify({
