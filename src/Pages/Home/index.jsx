@@ -66,9 +66,8 @@ export const Home = () => {
       );
     }
 
-    if (location?.lat && allCities?.length) {
+    if (location?.lat && allCities?.cities.length) {
       getNearestCity();
-      console.log('here')
     }
   }, [location, allCities]);
 
