@@ -35,7 +35,7 @@ export const Home = () => {
       ? JSON.parse(localStorage.getItem("nearestCity"))
       : null
   );
-
+  console.log(location, nearestCity);
   const getNearestCity = () => {
     const nearest = sortCities(allCities, location);
     setNearestCity(nearest[0]);
@@ -69,8 +69,6 @@ export const Home = () => {
       getNearestCity();
     }
   }, [location, allCities]);
-  
-  
 
   return (
     <div className="mt-24">
