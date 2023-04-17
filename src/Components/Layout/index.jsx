@@ -124,6 +124,7 @@ export const Layout = ({ children }) => {
             confirmButtonText: "Try again",
           });
         }
+        setIsLoginModalOpen(false);
       })
       .catch((error) => console.error(error));
     // const userId = uuidv4();
