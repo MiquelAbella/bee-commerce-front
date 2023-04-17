@@ -62,24 +62,7 @@ const CheckoutForm = ({
         setIsDownloadButtonEnabled(true);
         setisLoading(false);
         if (user) {
-          const { id } = user;
           addToHistory({ cart, date: new Date().toLocaleDateString() });
-          const res = await fetch(`${url}/users/${id}/`, {
-            method: "PUT",
-            body: JSON.stringify({
-              ...user,
-              history: [
-                ...user.history,
-                { cart, date: new Date().toLocaleDateString() },
-              ],
-            }),
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-              "Access-Control-Allow-Origin":
-                "https://bee-commerce-back-production.up.railway.app",
-            },
-          });
         }
       }
     }
