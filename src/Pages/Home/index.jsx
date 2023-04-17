@@ -35,9 +35,9 @@ export const Home = () => {
       ? JSON.parse(localStorage.getItem("nearestCity"))
       : null
   );
-  console.log(location, allCities);
+  
   const getNearestCity = () => {
-    const nearest = sortCities(allCities, location);
+    const nearest = sortCities(allCities.cities, location);
     setNearestCity(nearest[0]);
     console.log('getting nearest')
     localStorage.setItem("nearestCity", JSON.stringify(nearest[0]));
