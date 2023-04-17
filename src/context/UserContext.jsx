@@ -37,7 +37,7 @@ export const UserProvider = ({ children }) => {
           },
         });
         const data = await res.json();
-        loginUser(data.user._id);
+        loginUser(data);
       }
     };
     if (uid !== "null" && uid !== "undefined") {
